@@ -5,19 +5,34 @@ using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
-    private GameObject castle;
+    public SphereCollider Collider;
+
+    private Vector3 castlePosition;
     private NavMeshAgent agent;
 
     private void Start()
     {
-        castle = GameObject.Find("Castle");
+        GameObject castle = GameObject.Find("Castle");
+
+        if (castle == null)
+            throw new System.Exception("Castle not found");
+
+        castlePosition = castle.transform.position;
         agent = gameObject.GetComponent<NavMeshAgent>();
-        agent.SetDestination(castle.transform.position);
+        agent.SetDestination(castlePosition);
     }
 
-    // Update is called once per frame
-    void Update()
+
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        if (other.tag == "PlayerUnit")
+            agent.SetDestination(other.transform.position);
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "PlayerUnit")
+            agent.SetDestination(castlePosition);
     }
 }
