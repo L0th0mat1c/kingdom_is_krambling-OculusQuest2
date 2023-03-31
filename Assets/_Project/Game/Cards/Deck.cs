@@ -25,8 +25,13 @@ public class Deck : MonoBehaviour
     
 
     public SOCard[] deck;
+
+    [SerializeField]
+    public int maxCardsOnBoard = 10;
     [SerializeField]
     private GameObject cardTemplate;
+    [SerializeField]
+    private Transform[] cardSlots;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,10 +39,17 @@ public class Deck : MonoBehaviour
     }
 
     public void generateCardInDeck(){
+        float offset = 0;
+        if(deck.Length%2 == 0){
+            offset = 1.25f;
+        }
         int index = 0;
         foreach (SOCard card in deck)
-        {
-            GameObject cardInstance = Instantiate(cardTemplate, new Vector3((index * 5) + 5, 0, 0), Quaternion.identity);
+        {   
+            if(index >= maxCardsOnBoard) return;
+            var slotPosition = cardSlots[index].transform.position;
+            slotPosition.x -= offset;
+            GameObject cardInstance = Instantiate(cardTemplate, slotPosition, Quaternion.identity);
             cardInstance.GetComponent<UICard>().setCardAttribute(card);
             index++;
         }

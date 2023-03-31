@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   model: {fileID: 1685897842687419242, guid: 669a01f8a366b0f438f0f70d7b44f5eb, type: 3}
-  cost: 0
-  title: 
-  description: 
+  cost: 1
+  title: Bomb
+  description: Faite des degas au enemies proches
   unit: {fileID: 0}

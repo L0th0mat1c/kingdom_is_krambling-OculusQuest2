@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a42e86eff86fb824885acc4d2458c278, type: 3}
-  m_Name: Canon
+  m_Name: Leure
   m_EditorClassIdentifier: 
   type: 0
-  model: {fileID: 6825457309766921349, guid: fbdcd8ef12090944d99568aaa614e751, type: 3}
-  cost: 2
-  title: 
-  description: 
+  model: {fileID: 6903943676530275551, guid: 0e03a3c6c7af6724eb668e4f4f7dbd26, type: 3}
+  cost: 1
+  title: Leure
+  description: Attire les enemis proches
   unit: {fileID: 0}

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a42e86eff86fb824885acc4d2458c278, type: 3}
-  m_Name: Camp
+  m_Name: Baricade
   m_EditorClassIdentifier: 
   type: 0
-  model: {fileID: 1081698354322879250, guid: 1b171388427bc7c44949dfed06489b9e, type: 3}
-  cost: 4
-  title: Camp
-  description: Invoque un campement qui fait apparaitre des unity toutes les 5 secondes
+  model: {fileID: 8491153338745164774, guid: e44dbc12da2703941b74c0925ed64493, type: 3}
+  cost: 2
+  title: Baricade
+  description: Bloques les enemis
   unit: {fileID: 0}
