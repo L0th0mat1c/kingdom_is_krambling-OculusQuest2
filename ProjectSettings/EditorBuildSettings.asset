@@ -6,13 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/LilianScene.unity
+    path: Assets/_Project/Scenes/LilianScene.unity
     guid: 85d0d43c185fe9049b6bd2fd319a6100
   - enabled: 1
-    path: Assets/Scenes/LoicScene.unity
+    path: Assets/_Project/Scenes/LoicScene.unity
     guid: a3a680886f67ae24593326e933e52c8d
   - enabled: 0
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/_Project/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b79a5cc992f86bd4bb10b9898be79384,
