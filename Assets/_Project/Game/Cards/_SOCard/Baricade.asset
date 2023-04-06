@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a42e86eff86fb824885acc4d2458c278, type: 3}
+  m_Name: Baricade
+  m_EditorClassIdentifier: 
+  type: 0
+  model: {fileID: 8491153338745164774, guid: e44dbc12da2703941b74c0925ed64493, type: 3}
+  cost: 2
+  title: Baricade
+  description: Bloques les enemis
+  unit: {fileID: 0}
