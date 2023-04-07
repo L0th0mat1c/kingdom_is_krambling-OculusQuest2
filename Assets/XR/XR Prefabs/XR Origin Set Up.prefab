@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4202062677625862584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: XRController_LT_Thumbstick_Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 7498526646459600742}
   - component: {fileID: 7549745019829833124}
   - component: {fileID: 1579254671127025434}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Button_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 3144643300990904038}
   - component: {fileID: 8609115260775499945}
   - component: {fileID: 3051596165604245148}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Direct Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 388156166906595440}
   - component: {fileID: 6276173204394322220}
   - component: {fileID: 609825081362979801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LeftHand (Smooth locomotion)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,6 +565,7 @@ MonoBehaviour:
   - {fileID: 8333415187922307360}
   - {fileID: 2642310675962338629}
   - {fileID: 474823887180687203}
+  - {fileID: 5226148035904789113}
 --- !u!1 &388156167250610324
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +579,7 @@ GameObject:
   - component: {fileID: 388156167250610320}
   - component: {fileID: 4503588133991798979}
   - component: {fileID: 6471062736469540571}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RightHand (Teleport Locomotion)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -879,6 +880,7 @@ MonoBehaviour:
   - {fileID: 4117637811833805255}
   - {fileID: 8609115260775499945}
   - {fileID: 2657087322881007601}
+  - {fileID: 6456062722562640614}
 --- !u!1 &388156167311717430
 GameObject:
   m_ObjectHideFlags: 0
@@ -888,7 +890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 388156167311717431}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CameraOffset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -927,7 +929,7 @@ GameObject:
   - component: {fileID: 388156167353968657}
   - component: {fileID: 5988706691027809271}
   - component: {fileID: 8681749773547753516}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -945,7 +947,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 3217647806774492355}
   m_Father: {fileID: 388156167311717431}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1146,7 +1149,7 @@ GameObject:
   - component: {fileID: 388156168007984226}
   - component: {fileID: 5317177814239510540}
   - component: {fileID: 7450825329228124029}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Teleport Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1742,7 +1745,7 @@ GameObject:
   - component: {fileID: 210454751061700445}
   - component: {fileID: 3838321349594210552}
   - component: {fileID: 1342217444559459378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Primitive_Wedge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1825,7 +1828,7 @@ GameObject:
   - component: {fileID: 5656193748861181821}
   - component: {fileID: 1612391213377697451}
   - component: {fileID: 5924199816605128342}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1909,7 +1912,7 @@ GameObject:
   - component: {fileID: 7580970136407504857}
   - component: {fileID: 3893501048863748976}
   - component: {fileID: 3392872696863344904}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ThumbStick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1990,7 +1993,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 245511813192740869}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Directional Teleport Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2032,7 +2035,7 @@ GameObject:
   - component: {fileID: 7335801155449780941}
   - component: {fileID: 5988706691027809278}
   - component: {fileID: 5988706691027809275}
-  m_Layer: 2
+  m_Layer: 8
   m_Name: XR Origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2071,7 +2074,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 1347815886204891465}
   m_CameraFloorOffsetObject: {fileID: 388156167311717430}
   m_RequestedTrackingOriginMode: 2
-  m_CameraYOffset: 1.36144
+  m_CameraYOffset: 3
 --- !u!114 &5988706691027809265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2197,7 +2200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_System: {fileID: 5988706691027809266}
-  m_MoveSpeed: 1
+  m_MoveSpeed: 3
   m_EnableStrafe: 1
   m_EnableFly: 0
   m_UseGravity: 1
@@ -2273,12 +2276,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 2
-  m_Radius: 0.3
+  m_Radius: 0.4
   m_SlopeLimit: 45
   m_StepOffset: 0.5
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.76072, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &5988706691027809275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2305,7 +2308,7 @@ GameObject:
   - component: {fileID: 2695303822733362282}
   - component: {fileID: 6294594605926264877}
   - component: {fileID: 6203215137294898397}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Button_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2388,7 +2391,7 @@ GameObject:
   - component: {fileID: 7653690342755016725}
   - component: {fileID: 6815876659676129317}
   - component: {fileID: 148990448495083806}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Poke Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2472,7 +2475,7 @@ GameObject:
   - component: {fileID: 1382547173340435757}
   - component: {fileID: 2630120603602016904}
   - component: {fileID: 244574855049162306}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Primitive_Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2555,7 +2558,7 @@ GameObject:
   - component: {fileID: 3978972548045390672}
   - component: {fileID: 3044404197371767244}
   - component: {fileID: 7832280632017821038}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Button_Home
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2638,7 +2641,7 @@ GameObject:
   - component: {fileID: 1805603037094943778}
   - component: {fileID: 8202420788603224694}
   - component: {fileID: 920920771084913186}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ThumbStick_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2719,7 +2722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4691470736150300432}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: XR Origin Set Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2756,7 +2759,7 @@ GameObject:
   - component: {fileID: 6187455014327360002}
   - component: {fileID: 8624700987327731930}
   - component: {fileID: 2791645280326850552}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2839,7 +2842,7 @@ GameObject:
   - component: {fileID: 1895868946409918210}
   - component: {fileID: 8032648194847172788}
   - component: {fileID: 3388660817852351061}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2921,7 +2924,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1332208539351242865}
   - component: {fileID: 4117637811833805255}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Poke Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3012,7 +3015,7 @@ GameObject:
   - component: {fileID: 2985548493970952904}
   - component: {fileID: 2216077903972031853}
   - component: {fileID: 4117944090761931175}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Primitive_Wedge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3093,7 +3096,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2949110379424763280}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Directional Teleport Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3129,7 +3132,7 @@ GameObject:
   - component: {fileID: 6456062722562640614}
   - component: {fileID: 1344706555929954522}
   - component: {fileID: 5904414510953811970}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gaze Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3483,7 +3486,7 @@ GameObject:
   - component: {fileID: 3379496360309561847}
   - component: {fileID: 7083892826220641689}
   - component: {fileID: 3340466386457660683}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Teleport Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4079,7 +4082,7 @@ GameObject:
   - component: {fileID: 5700608180860366850}
   - component: {fileID: 1366654209944172566}
   - component: {fileID: 9181021849595287757}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TouchPad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4160,7 +4163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4177322689234827749}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: XRControllerRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4199,7 +4202,7 @@ GameObject:
   - component: {fileID: 4083261446919121080}
   - component: {fileID: 1082397951061813021}
   - component: {fileID: 2945781292017816535}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Primitive_Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4282,7 +4285,7 @@ GameObject:
   - component: {fileID: 3587707754484150935}
   - component: {fileID: 4971077937492677921}
   - component: {fileID: 325265217667465152}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4365,7 +4368,7 @@ GameObject:
   - component: {fileID: 9104909001391679383}
   - component: {fileID: 6644063067961648463}
   - component: {fileID: 952662391768951405}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4448,7 +4451,7 @@ GameObject:
   - component: {fileID: 6961168718962980423}
   - component: {fileID: 1020020310561560294}
   - component: {fileID: 3065362805886715308}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4531,7 +4534,7 @@ GameObject:
   - component: {fileID: 341880723281745083}
   - component: {fileID: 3056279245795656866}
   - component: {fileID: 7204673325894613357}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Controller_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4614,7 +4617,7 @@ GameObject:
   - component: {fileID: 4585265836840199164}
   - component: {fileID: 2313937783957146762}
   - component: {fileID: 22166763231309808}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4698,7 +4701,7 @@ GameObject:
   - component: {fileID: 5226148035904789113}
   - component: {fileID: 267630307993262149}
   - component: {fileID: 4679022940129935517}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gaze Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5049,7 +5052,7 @@ GameObject:
   - component: {fileID: 5135772266175268028}
   - component: {fileID: 8136375321590041369}
   - component: {fileID: 6273164046891089875}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Primitive_Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5132,7 +5135,7 @@ GameObject:
   - component: {fileID: 5810073221272094833}
   - component: {fileID: 5701387890574501639}
   - component: {fileID: 8020177278980719741}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bumper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5214,7 +5217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5988706691508213623}
   - component: {fileID: 5988706691508213620}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Input Action Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5261,7 +5264,7 @@ GameObject:
   - component: {fileID: 5988706692032488964}
   - component: {fileID: 5988706692032488965}
   - component: {fileID: 5988706692032488967}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5354,7 +5357,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5988706692584051848}
   - component: {fileID: 5988706692584051849}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: InteractionManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5401,7 +5404,7 @@ GameObject:
   - component: {fileID: 7763430082461695798}
   - component: {fileID: 5001724523397672751}
   - component: {fileID: 936608002685326048}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Controller_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5484,7 +5487,7 @@ GameObject:
   - component: {fileID: 8680375280826708746}
   - component: {fileID: 2642310675962338629}
   - component: {fileID: 8758258498377542512}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Direct Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5613,7 +5616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6269605857885987220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blocking Teleport Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5651,7 +5654,7 @@ GameObject:
   - component: {fileID: 2994060130803228596}
   - component: {fileID: 511716144317864563}
   - component: {fileID: 5315671471720109152}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ray Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5776,7 +5779,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0.1
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 2147483681
+    m_Bits: 2147484257
   m_RaycastTriggerInteraction: 2
   m_HitClosestOnly: 0
   m_HoverToSelect: 0
@@ -6058,7 +6061,7 @@ GameObject:
   - component: {fileID: 2356978962001195250}
   - component: {fileID: 1446832531830307010}
   - component: {fileID: 5229707443157570041}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Poke Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6142,7 +6145,7 @@ GameObject:
   - component: {fileID: 2314574077012532111}
   - component: {fileID: 9076144065056428955}
   - component: {fileID: 1182809019984442176}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TouchPad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6223,7 +6226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6267727455288791656}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: XRControllerLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6262,7 +6265,7 @@ GameObject:
   - component: {fileID: 447721270996311124}
   - component: {fileID: 6416462477320820989}
   - component: {fileID: 4617952745312199301}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ThumbStick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6345,7 +6348,7 @@ GameObject:
   - component: {fileID: 2413210375380088048}
   - component: {fileID: 8747109194489945382}
   - component: {fileID: 4410528629790358811}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6428,7 +6431,7 @@ GameObject:
   - component: {fileID: 7836419863456921897}
   - component: {fileID: 6588579121073567372}
   - component: {fileID: 8974445372100690502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Primitive_Torus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6510,7 +6513,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6412564756244433046}
   - component: {fileID: 8333415187922307360}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Poke Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6601,7 +6604,7 @@ GameObject:
   - component: {fileID: 509956183095796971}
   - component: {fileID: 560048529986135593}
   - component: {fileID: 8856618879356632215}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Button_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6682,7 +6685,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6148290412863164981}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: XRController_LT_Thumbstick_Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6719,7 +6722,7 @@ GameObject:
   - component: {fileID: 3033736343134873248}
   - component: {fileID: 4946397292666209793}
   - component: {fileID: 6919972190686598475}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6800,7 +6803,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8973280137026247681}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Blocking Teleport Reticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6836,7 +6839,7 @@ GameObject:
   - component: {fileID: 8506576589404764079}
   - component: {fileID: 2222383533007006203}
   - component: {fileID: 7188977266695430575}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ThumbStick_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6919,7 +6922,7 @@ GameObject:
   - component: {fileID: 6357818513107724509}
   - component: {fileID: 4988934294853091905}
   - component: {fileID: 266413381134513891}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Button_Home
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7004,7 +7007,7 @@ GameObject:
   - component: {fileID: 847871673656796966}
   - component: {fileID: 2688873311603286753}
   - component: {fileID: 7749630712269794546}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ray Interactor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7129,7 +7132,7 @@ MonoBehaviour:
   m_SphereCastRadius: 0.1
   m_RaycastMask:
     serializedVersion: 2
-    m_Bits: 2147483681
+    m_Bits: 2147484257
   m_RaycastTriggerInteraction: 2
   m_HitClosestOnly: 0
   m_HoverToSelect: 0
@@ -7411,7 +7414,7 @@ GameObject:
   - component: {fileID: 5360410247669264359}
   - component: {fileID: 4060347193245424544}
   - component: {fileID: 4113364804280729424}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Button_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7484,3 +7487,278 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1001 &6366451602175521029
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 388156167353968662}
+    m_Modifications:
+    - target: {fileID: 8429981633443581377, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_Name
+      value: TunnelingVignette
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581377, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581382, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_DefaultParameters.m_EaseInTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_DefaultParameters.m_EaseOutTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_DefaultParameters.m_ApertureSize
+      value: 0.321
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_DefaultParameters.m_FeatheringEffect
+      value: 0.412
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[0].m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[1].m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[2].m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[3].m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[0].m_LocomotionProvider
+      value: 
+      objectReference: {fileID: 5988706691027809279}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[1].m_LocomotionProvider
+      value: 
+      objectReference: {fileID: 5988706691027809265}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[2].m_LocomotionProvider
+      value: 
+      objectReference: {fileID: 5988706691027809267}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[3].m_LocomotionProvider
+      value: 
+      objectReference: {fileID: 5988706691027809277}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[0].m_OverrideDefaultParameters
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[1].m_OverrideDefaultParameters
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[0].m_OverrideParameters.m_EaseInTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[1].m_OverrideParameters.m_EaseInTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[2].m_OverrideParameters.m_EaseInTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[3].m_OverrideParameters.m_EaseInTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[0].m_OverrideParameters.m_EaseOutTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[1].m_OverrideParameters.m_EaseOutTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[2].m_OverrideParameters.m_EaseOutTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[3].m_OverrideParameters.m_EaseOutTime
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[0].m_OverrideParameters.m_ApertureSize
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[1].m_OverrideParameters.m_ApertureSize
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[2].m_OverrideParameters.m_ApertureSize
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[3].m_OverrideParameters.m_ApertureSize
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[0].m_OverrideParameters.m_VignetteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[1].m_OverrideParameters.m_VignetteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[2].m_OverrideParameters.m_VignetteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[3].m_OverrideParameters.m_VignetteColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[0].m_OverrideParameters.m_FeatheringEffect
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[1].m_OverrideParameters.m_FeatheringEffect
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[2].m_OverrideParameters.m_FeatheringEffect
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[3].m_OverrideParameters.m_FeatheringEffect
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[0].m_OverrideParameters.m_VignetteColorBlend.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[1].m_OverrideParameters.m_VignetteColorBlend.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[2].m_OverrideParameters.m_VignetteColorBlend.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
+        type: 3}
+      propertyPath: m_LocomotionVignetteProviders.Array.data[3].m_OverrideParameters.m_VignetteColorBlend.a
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1670dca8ee98f864eb412b51a24c08e1, type: 3}
+--- !u!4 &3217647806774492355 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8429981633443581382, guid: 1670dca8ee98f864eb412b51a24c08e1,
+    type: 3}
+  m_PrefabInstance: {fileID: 6366451602175521029}
+  m_PrefabAsset: {fileID: 0}
