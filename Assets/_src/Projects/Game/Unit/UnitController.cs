@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class UnitController : MonoBehaviour
 {
-    public int HP;
-    public float Range;
+    public int HP = 10;
+    public int Attack = 0;
+    public float Range = 1;
 
-    private void Start()
+    private EnemyBehavior enemyBehavior;
+    private UnitAttack unitAttack;
+
+    private void Awake()
     {
-        addTriggerZone();
+        gameObject.TryGetComponent(out enemyBehavior);
+        gameObject.TryGetComponent(out unitAttack);
     }
 
-    private void addTriggerZone()
+    public void AttackUnit(UnitController unitController)
     {
-        SphereCollider collider = gameObject.AddComponent<SphereCollider>();
-        collider.isTrigger = true;
-        collider.radius = Range;
+        if(unitAttack != null)
+        {
+            if (unitAttack.Attack(unitController) && enemyBehavior != null)
+                enemyBehavior.UnitsTargated.Remove(unitController);
+        }
     }
 }
