@@ -2722,6 +2722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4691470736150300432}
+  - component: {fileID: 601477039}
   m_Layer: 8
   m_Name: XR Origin Set Up
   m_TagString: Untagged
@@ -2748,6 +2749,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &601477039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090959603104853646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 880bb53345ce1f44a8286ed385fc8a79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftRayInteractor: {fileID: 474823887180687203}
+  rightRayInteractor: {fileID: 2657087322881007601}
 --- !u!1 &2096729914454700564
 GameObject:
   m_ObjectHideFlags: 0
@@ -5654,6 +5669,7 @@ GameObject:
   - component: {fileID: 2994060130803228596}
   - component: {fileID: 511716144317864563}
   - component: {fileID: 5315671471720109152}
+  - component: {fileID: 1947018314}
   m_Layer: 8
   m_Name: Ray Interactor
   m_TagString: Untagged
@@ -6050,6 +6066,30 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
+--- !u!114 &1947018314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6594194695469061807}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6df71824f341bc4897680bb8beb4090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxRaycastDistance: 1000
+  m_ReticlePrefab: {fileID: 8815821636316860301, guid: 649b6053bad542543a9568754ffa7526,
+    type: 3}
+  m_PrefabScalingFactor: 1
+  m_UndoDistanceScaling: 0
+  m_AlignPrefabWithSurfaceNormal: 1
+  m_EndpointSmoothingTime: 0
+  m_DrawWhileSelecting: 1
+  m_DrawOnNoHit: 0
+  m_RaycastMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &6709390655633712965
 GameObject:
   m_ObjectHideFlags: 0
@@ -7007,6 +7047,7 @@ GameObject:
   - component: {fileID: 847871673656796966}
   - component: {fileID: 2688873311603286753}
   - component: {fileID: 7749630712269794546}
+  - component: {fileID: 601477045}
   m_Layer: 8
   m_Name: Ray Interactor
   m_TagString: Untagged
@@ -7314,7 +7355,7 @@ MonoBehaviour:
     ctime5: 0
     ctime6: 0
     ctime7: 0
-    atime0: 0
+    atime0: 49151
     atime1: 65535
     atime2: 0
     atime3: 0
@@ -7343,7 +7384,7 @@ MonoBehaviour:
     ctime5: 0
     ctime6: 0
     ctime7: 0
-    atime0: 0
+    atime0: 49151
     atime1: 65535
     atime2: 0
     atime3: 0
@@ -7403,6 +7444,30 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
+--- !u!114 &601477045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8775965618788675133}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6df71824f341bc4897680bb8beb4090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_MaxRaycastDistance: 1000
+  m_ReticlePrefab: {fileID: 8815821636316860301, guid: 649b6053bad542543a9568754ffa7526,
+    type: 3}
+  m_PrefabScalingFactor: 1
+  m_UndoDistanceScaling: 0
+  m_AlignPrefabWithSurfaceNormal: 1
+  m_EndpointSmoothingTime: 0
+  m_DrawWhileSelecting: 1
+  m_DrawOnNoHit: 0
+  m_RaycastMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!1 &8884880819456667580
 GameObject:
   m_ObjectHideFlags: 0

@@ -71,13 +71,13 @@ public class Crossbow : MonoBehaviour
     }
 
     // A VERIFIER POUR IMPULSION MANETTE
-    private void OnEnable() {
-        grabInteractable.activated.AddListener(hapticCrossbow);
-    }
-    private void OnDisable() {
-        grabInteractable.activated.RemoveListener(hapticCrossbow);
-    }
-    private void hapticCrossbow(ActivateEventArgs args) {
-        args.interactorObject.transform.GetComponent<XRBaseController>().SendHapticImpulse(.5f, .25f);
-    }
+    // private void OnEnable() {
+    //     grabInteractable.activated.AddListener(hapticCrossbow);
+    // }
+    // private void OnDisable() {
+    //     grabInteractable.activated.RemoveListener(hapticCrossbow);
+    // }
+    // private void hapticCrossbow(ActivateEventArgs args) {
+    //     args.interactorObject.transform.GetComponent<XRBaseController>().SendHapticImpulse(.5f, .25f);
+    // }
 }
