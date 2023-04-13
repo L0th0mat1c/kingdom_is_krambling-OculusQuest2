@@ -2,27 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitController : MonoBehaviour
+public class UnitController : BaseUnitController, IUnitAttacker
 {
-    public int HP = 10;
-    public int Attack = 0;
-    public float Range = 1;
+    [Header("Unit components")]
+    [SerializeField]private EnemyBehavior enemyBehavior;
+    [SerializeField]private UnitAttack unitAttack;
 
-    private EnemyBehavior enemyBehavior;
-    private UnitAttack unitAttack;
-
-    private void Awake()
+    public void AttackUnit(BaseUnitController unitController)
     {
-        gameObject.TryGetComponent(out enemyBehavior);
-        gameObject.TryGetComponent(out unitAttack);
-    }
-
-    public void AttackUnit(UnitController unitController)
-    {
-        if(unitAttack != null)
-        {
-            if (unitAttack.Attack(unitController) && enemyBehavior != null)
-                enemyBehavior.UnitsTargated.Remove(unitController);
-        }
+        if (unitAttack != null)
+            unitAttack.Attack(unitController);
     }
 }
