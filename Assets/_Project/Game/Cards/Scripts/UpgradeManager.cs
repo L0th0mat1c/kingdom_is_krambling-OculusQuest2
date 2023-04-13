@@ -24,13 +24,15 @@ public class UpgradeManager : MonoBehaviour
         }
     //Singleton
 
-    public int addGoldBagOnWaveStart = 0;
-    public int addCoinsOnSecond = 0;
+    // arbalette 
     public int addArbaletteDamages = 0;
-    public int addMaxGoldLimit = 0;
-    public int addCoinsOnKill = 0;
+    public int addArbaletteSpeed = 0;
     public int addCoinsOnArbaletteHit = 0;
 
+    // coins
+    public int addCoinsOnKill = 0;
+    public int addGoldBagOnWaveStart = 0;
+    public int addCoinsOnSecond = 0;
 
     public enum UpgradeType{
         CardUpgrade,
@@ -40,74 +42,25 @@ public class UpgradeManager : MonoBehaviour
     }
 
     private void Start() {
+        UpgradeUI.Instance.setTitle("Choisissez votre deck de départ");
         UpgradeUI.Instance.getStartersPack();
+        GameManager.Instance.onGameStateChanged += onGameStateChanged;
     }
 
-    // private List<SOCard> getAllCards(){
-    //     return new List<SOCard>(Resources.LoadAll<SOCard>(""));
-    // }
-
-    // private SOCard getRandomCard(){
-    //     int randomIndex = Random.Range(0, allCards.Count);
-    //     return allCards[randomIndex];
-    // }
-
-    // private SOCard getCardAtIndex(int _index){
-    //     return allCards[_index];
-    // }
-
-    // private List<SOCard> getRdnStartCards(int _number){
-    //     List<SOCard> startCards = new List<SOCard>();
-    //     int[] rdnNumberList =  GetUniqueRandomNumbers(_number, 0, allCards.Count);
-    //     foreach (int rdnNumber in rdnNumberList)
-    //     {
-    //         startCards.Add(getCardAtIndex(rdnNumber));
-    //     }
-    //     return startCards;
-    // }
-
-    // private void Start() {
-        // getRdnStartCards(3).ToArray();
-        // int[] numbers = GetUniqueRandomNumbers(3, 0, 10);
-        // foreach (int number in numbers)
-        // {
-        //     Debug.Log(" num -> " + number);
-        // }
-    // }
-
-    // private void getStartersPack(){
-    //     UpgradeUI.Instance.AddUpgradeBox("1 deck", "Ajoute 3 cards dans votre deck", getRdnStartCards(3).ToArray(), UpgradeType.StarterPack, null);
-    //     UpgradeUI.Instance.AddUpgradeBox("2 deck", "Ajoute 3 cards dans votre deck", getRdnStartCards(3).ToArray(), UpgradeType.StarterPack, null);
-    //     UpgradeUI.Instance.AddUpgradeBox("3 deck", "Ajoute 3 cards dans votre deck", getRdnStartCards(3).ToArray(), UpgradeType.StarterPack, null);
-    // }
+    private void onGameStateChanged(GameManager.GameState _gameState){
+        if(_gameState == GameManager.GameState.Upgrade){
+            UpgradeUI.Instance.setTitle("Choisissez votre upgrade");
+            displayNewUpgrades();
+        }else{
+            UpgradeUI.Instance.setTitle("");
+        }
+    }
+            
+    private void displayNewUpgrades(){
+        UpgradeUI.Instance.getBasicUpgradePack();
+    }
 
 
-
-    // public void addSelectedCardToDeck(){
-    //     SOCard randomCard = getRandomCard();
-    //     DeckManager.Instance.addCardToDeck(randomCard);
-    // }
-
-
-    // public static int[] GetUniqueRandomNumbers(int _number, int _min, int _max) {
-    //     List<int> numbers = new List<int>();
-    //     int ejectCount = 0;
-    //     while (numbers.Count < _number) {
-    //         int num = Random.Range(_min, _max);
-    //         Debug.Log("GetUniqueRandomNumbers chosen: " + num);
-
-    //         if (!numbers.Contains(num)) {
-    //             Debug.Log("GetUniqueRandomNumbers added: " + num);
-    //             numbers.Add(num);
-    //         }
-    //         ejectCount++;
-    //         if (ejectCount >= 30) {
-    //             Debug.Log("GetUniqueRandomNumbers: Ejecting after 30 tries");
-    //             break;
-    //         }
-    //     }
-    //     return numbers.ToArray();
-    // }
 
 
 }

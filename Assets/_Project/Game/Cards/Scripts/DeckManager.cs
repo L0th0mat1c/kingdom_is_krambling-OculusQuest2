@@ -46,6 +46,10 @@ public class DeckManager : MonoBehaviour
         generateCardInDeck();
     }
 
+    public List<SOCard> getDeck(){
+        return deck;
+    }
+
     public void cardIsSelected(int _index){
         onCardSelected?.Invoke(_index);
     }

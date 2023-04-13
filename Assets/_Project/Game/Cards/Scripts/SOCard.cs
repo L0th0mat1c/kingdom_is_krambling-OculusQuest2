@@ -46,6 +46,24 @@ public class SOCard : ScriptableObject
     public int getCardUnitSpeed(){
         return getCardState(unitSpeed);
     }
+
+    public SOCard getNextLvl(){
+        switch(lvl){
+            case Lvl.basic:
+                lvl = Lvl.upgrade1;
+                break;
+            case Lvl.upgrade1:
+                lvl = Lvl.upgrade2;
+                break;
+            case Lvl.upgrade2:
+                lvl = Lvl.upgrade3;
+                break;
+            default:
+                lvl = Lvl.upgrade3;
+                break;
+        }
+        return this;
+    }
     
     
     private int getCardState(LvlAmount lvlAmount){
