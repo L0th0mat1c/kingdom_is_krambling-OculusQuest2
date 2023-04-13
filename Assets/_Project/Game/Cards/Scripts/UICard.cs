@@ -1,0 +1,138 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using DG.Tweening;
+using UnityEngine.XR.Interaction.Toolkit;
+
+public class UICard : MonoBehaviour
+{
+
+    private SOCard card;
+    public int cost;
+    private GameObject unit;
+    private Rigidbody rb;
+    private int index;
+    private bool isPlayable = false;
+
+    private Vector3 initScale;
+
+    public TextMeshProUGUI UItitle;
+    public TextMeshProUGUI UIcost;
+    public TextMeshProUGUI UIdesc;
+    public GameObject UImodel;
+    public TextMeshProUGUI UIdamage;
+    public TextMeshProUGUI UIhealth;
+    public TextMeshProUGUI UIspeed;
+    private XRGrabInteractable grabInteractable;
+
+    private void Awake() {
+        rb = GetComponent<Rigidbody>();
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        initScale = transform.localScale;
+        grabInteractable = GetComponent<XRGrabInteractable>();
+    }
+
+    private void Start() {
+        transform.localScale = Vector3.zero;
+        transform.DOScale(initScale, 0.5f);
+        UpdateCardPayable(GoldManager.Instance.goldBag);
+        GoldManager.Instance.OnGoldBagUpdated += UpdateCardPayable;
+        GameManager.Instance.onGameStateChanged += onGameStateChanged;
+        DeckManager.Instance.onDeleteAllCards += DestroyCard;
+    }
+
+    private void onGameStateChanged(GameManager.GameState _gameState){
+        if(_gameState != GameManager.GameState.Upgrade && !isPlayable){
+            DestroyCard();
+        }
+    }
+
+    private void UpdateCardPayable(int _goldBag){
+        if(cost <= _goldBag){
+            isPlayable = true;
+        }else{
+            isPlayable = false;
+        }
+    }
+
+    public void onSelectEnter(){
+        rb.constraints = RigidbodyConstraints.None;
+        DeckManager.Instance.cardIsSelected(index);
+    }
+
+    public void onSelectExit(){
+        DeckManager.Instance.cardIsUnselected(index);
+        DestroyCard();
+    }
+
+    public void onHoverEnter(){
+        transform.DOScale(new Vector3(initScale.x + 0.006f, initScale.y + 0.006f ,initScale.z + 0.006f ), 0.1f);
+    }
+
+    public void onHoverExit(){
+        transform.DOScale(initScale, 0.2f);
+    }
+
+    public void onActivate(){
+        PlayCard(grabInteractable.selectingInteractor);
+    }
+
+
+    public void setCardAttribute(SOCard _card, int _index, bool _isPlayable = true){
+        card = _card;
+        cost = _card.getCardCost();
+        UItitle.text = _card.title.ToString();
+        UIcost.text = _card.getCardCost().ToString();
+        UIdesc.text = _card.description.ToString();
+        UIdamage.text = _card.getCardUnitDamage().ToString();
+        UIhealth.text = _card.getCardUnitHealth().ToString();
+        UIspeed.text = _card.getCardUnitSpeed().ToString();
+        var model = Instantiate(_card.model, UImodel.transform.position, Quaternion.identity);
+        model.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
+        model.transform.SetParent(gameObject.transform);
+        index = _index;
+        unit = _card.unit;
+        isPlayable = _isPlayable;
+
+        if(!_isPlayable){
+            grabInteractable.enabled = false;
+        }
+    }
+
+    private void PlayCard(XRBaseInteractor interactor){
+        if(!isPlayable) return;
+        DeckManager.Instance.cardIsUnselected(index);
+        // RaycastHit hit;
+        // if (Physics.Raycast(interactor.transform.position, interactor.transform.forward, out hit))
+        // {
+        //     Debug.Log("Hit: " + hit.collider.gameObject.tag);
+        //     // if(hit.collider.gameObject.tag == "Ground"){
+        //         GoldManager.Instance.removeMoney(cost);
+        //         var unitInstance = Instantiate(unit, hit.point, Quaternion.identity);
+        //         unitInstance.AddComponent(typeof(Unit));
+        //         unitInstance.GetComponent<Unit>().setUnitAttribute(card);
+        //         DestroyCard();
+        //     // }
+        // }
+        GoldManager.Instance.removeMoney(cost);
+        var unitInstance = Instantiate(unit, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+        
+        
+    }
+
+    public void DestroyCard(){
+        transform.DOScale(0, 0.5f);
+        Destroy(gameObject, 0.5f);
+    }
+    
+
+    private void OnDestroy() {
+        GoldManager.Instance.OnGoldBagUpdated -= UpdateCardPayable;
+        GameManager.Instance.onGameStateChanged -= onGameStateChanged;
+        DeckManager.Instance.onDeleteAllCards -= DestroyCard;
+    }
+
+}
