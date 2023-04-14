@@ -6,6 +6,8 @@ public class CastleController : StructureController
 {
     public override void ReceiveDamage(int damage)
     {
-        Debug.Log("LOOSE !");
+        if(HP - damage <= 0)
+            Debug.Log("LOOSE !");
+        base.ReceiveDamage(damage);
     }
 }
