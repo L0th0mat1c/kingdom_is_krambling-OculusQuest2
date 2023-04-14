@@ -34,6 +34,10 @@ public class UICard : MonoBehaviour
         grabInteractable = GetComponent<XRGrabInteractable>();
     }
 
+    private void OnEnable() {
+        grabInteractable.activated.AddListener(PlayCard);
+    }
+
     private void Start() {
         transform.localScale = Vector3.zero;
         transform.DOScale(initScale, 0.5f);
@@ -75,10 +79,6 @@ public class UICard : MonoBehaviour
         transform.DOScale(initScale, 0.2f);
     }
 
-    public void onActivate(){
-        PlayCard(grabInteractable.selectingInteractor);
-    }
-
 
     public void setCardAttribute(SOCard _card, int _index, bool _isPlayable = true){
         card = _card;
@@ -101,26 +101,14 @@ public class UICard : MonoBehaviour
         }
     }
 
-    private void PlayCard(XRBaseInteractor interactor){
+    private void PlayCard(ActivateEventArgs args){
         if(!isPlayable) return;
         DeckManager.Instance.cardIsUnselected(index);
-        // RaycastHit hit;
-        // if (Physics.Raycast(interactor.transform.position, interactor.transform.forward, out hit))
-        // {
-        //     Debug.Log("Hit: " + hit.collider.gameObject.tag);
-        //     // if(hit.collider.gameObject.tag == "Ground"){
-        //         GoldManager.Instance.removeMoney(cost);
-        //         var unitInstance = Instantiate(unit, hit.point, Quaternion.identity);
-        //         unitInstance.AddComponent(typeof(Unit));
-        //         unitInstance.GetComponent<Unit>().setUnitAttribute(card);
-        //         DestroyCard();
-        //     // }
-        // }
+        var xRRayInteractor = args.interactorObject.transform.GetComponent<XRRayInteractor>();
+        xRRayInteractor.TryGetHitInfo(out Vector3 position, out Vector3 normal, out int positionInLine, out bool isValidTarget);
+        var unitInstance = Instantiate(unit, position, Quaternion.identity);
         GoldManager.Instance.removeMoney(cost);
-        var unitInstance = Instantiate(unit, transform.position, Quaternion.identity);
         Destroy(gameObject);
-        
-        
     }
 
     public void DestroyCard(){

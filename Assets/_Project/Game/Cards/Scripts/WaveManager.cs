@@ -23,7 +23,7 @@ public class WaveManager : MonoBehaviour
         }
     // singleton
     
-    public int CurrentWave = 5;
+    public int CurrentWave = 0;
     public int CurrentWaveTime = 0;
     public int FullWaveTime = 60;
 
@@ -45,22 +45,18 @@ public class WaveManager : MonoBehaviour
     }
 
     private void StartWaveTimer(){
-        Debug.Log("time 1 -> " + CurrentWaveTime);
         AddTime(1);
     }
 
     private void AddTime(int _time){
-        Debug.Log("time 2 -> " + CurrentWaveTime);
 
 
         if(CurrentWaveTime >= FullWaveTime){
             GameManager.Instance.changeGameState(GameManager.GameState.Upgrade);
+            CurrentWave++;
         };
         CurrentWaveTime += _time;
-        Debug.Log("time 3 -> " + CurrentWaveTime);
-
         OnWaveTimeUpdated?.Invoke(CurrentWaveTime);
-        Debug.Log("time 4 -> " + CurrentWaveTime);
 
     }
 

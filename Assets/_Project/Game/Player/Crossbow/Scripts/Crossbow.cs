@@ -13,19 +13,23 @@ public class Crossbow : MonoBehaviour
     private Arrow m_CurrentArrow = null;
     private bool isCreatingArrow = false;
     private Rigidbody m_Rigidbody = null;
-    private float defaultPullValue = 2f;
+    [SerializeField] private float defaultPullValue = 2f;
     private AudioSource crossbowSound;
+    private Animator m_Animator;
+    
+    public float creationArrowTime = 0.5f;
 
     [SerializeField] XRGrabInteractable grabInteractable;
 
     private void Awake() {
         m_Rigidbody = transform.GetComponent<Rigidbody>();
         crossbowSound = transform.GetComponent<AudioSource>();
+        m_Animator = transform.GetComponent<Animator>();
     }
 
     public void NewArrow() {
         if(!m_CurrentArrow && !isCreatingArrow) {
-            StartCoroutine(CreateArrow(0.25f));
+            StartCoroutine(CreateArrow(creationArrowTime));
             isCreatingArrow = true;
         }
     }
@@ -52,6 +56,8 @@ public class Crossbow : MonoBehaviour
 
     public void FireArrow() {
         if(m_CurrentArrow != null) {
+            if(m_Animator != null)
+                m_Animator.SetTrigger("TrShoot");
             if(crossbowSound != null)
                 crossbowSound.Play();
             m_CurrentArrow.Fire(defaultPullValue);
@@ -59,19 +65,19 @@ public class Crossbow : MonoBehaviour
             NewArrow();
         }
         else if(!m_CurrentArrow && !isCreatingArrow) {
-            StartCoroutine(CreateArrow(0.25f));
+            StartCoroutine(CreateArrow(creationArrowTime));
             isCreatingArrow = true;
         }
     }
 
     // A VERIFIER POUR IMPULSION MANETTE
-    private void OnEnable() {
-        grabInteractable.activated.AddListener(hapticCrossbow);
-    }
-    private void OnDisable() {
-        grabInteractable.activated.RemoveListener(hapticCrossbow);
-    }
-    private void hapticCrossbow(ActivateEventArgs args) {
-        args.interactorObject.transform.GetComponent<XRBaseController>().SendHapticImpulse(.5f, .25f);
-    }
+    // private void OnEnable() {
+    //     grabInteractable.activated.AddListener(hapticCrossbow);
+    // }
+    // private void OnDisable() {
+    //     grabInteractable.activated.RemoveListener(hapticCrossbow);
+    // }
+    // private void hapticCrossbow(ActivateEventArgs args) {
+    //     args.interactorObject.transform.GetComponent<XRBaseController>().SendHapticImpulse(.5f, .25f);
+    // }
 }
