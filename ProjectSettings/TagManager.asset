@@ -9,6 +9,7 @@ TagManager:
   - SamplesInfoPanel
   - Card
   - CardBoard
+  - Reticles
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - UI
   - Card
   - CardBoard
-  - 
-  - 
+  - Player
+  - Weapon
   - 
   - 
   - 
