@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 0
-    path: Assets/_Project/Game/Cards/DeckTester.unity
+    path: Assets/_Project/Game/Cards/Scenes/DeckTester.unity
     guid: 18ccc8c13c1c2c04fa5e7fcd282b554b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b79a5cc992f86bd4bb10b9898be79384,
