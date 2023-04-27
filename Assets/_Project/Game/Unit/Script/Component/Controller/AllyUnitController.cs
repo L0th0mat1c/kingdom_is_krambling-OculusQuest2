@@ -12,12 +12,12 @@ public class AllyUnitController : BaseUnitController, IUnitAttacker
     private void Start()
     {
         UnitBehaviour = new AllyUnitBehaviour();
-        UnitAttack = new AllyUnitAttack();
+        UnitAttack = new UnitAttack();
 
         if(UnitBehaviour != null)
         {
             NavMeshAgent agent;
-            if (UnitBehaviour.CanMove && gameObject.TryGetComponent(out agent)) {
+            if (gameObject.TryGetComponent(out agent)) {
                 UnitBehaviour.Agent = agent;
             }
 
@@ -38,7 +38,7 @@ public class AllyUnitController : BaseUnitController, IUnitAttacker
     // Update is called once per frame
     private void behaviourUpdate()
     {
-        UnitBehaviour.Update(gameObject.transform.position);
+        UnitBehaviour.UpdateUnit(gameObject.transform.position);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -65,9 +65,10 @@ public class AllyUnitController : BaseUnitController, IUnitAttacker
         }
     }
 
-    private void OnDestroy()
+    protected override void onUnitDie()
     {
         if (UnitBehaviour != null)
-            UnitBehaviour.OnDestroy();
+            UnitBehaviour.OnUnitDestroy();
+        base.onUnitDie();
     }
 }

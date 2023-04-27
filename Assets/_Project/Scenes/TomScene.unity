@@ -1914,7 +1914,6 @@ MonoBehaviour:
   Attack: 0
   Range: 1
   enemyBehavior: {fileID: 0}
-  unitAttack: {fileID: 0}
 --- !u!1 &2014878933
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,7 +2178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
-  Attack: 5
+  Attack: 0
   Range: 2
 --- !u!1001 &2075995393752927520
 PrefabInstance:
@@ -2256,7 +2255,7 @@ PrefabInstance:
     - target: {fileID: 2075995394080139667, guid: 4b790fa639d7cb146ad375c033874f35,
         type: 3}
       propertyPath: Attack
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b790fa639d7cb146ad375c033874f35, type: 3}

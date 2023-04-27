@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitAttack : MonoBehaviour
+public class UnitAttack : IUnitAttack
 {
-    private UnitController controller;
+    private BaseUnitController unitController;
 
-    private void Start()
+    public void Init(BaseUnitController unit)
     {
-        controller = gameObject.GetComponent<UnitController>();
+        unitController = unit;
     }
 
-    /// <summary>
-    /// Attaque l'unité en paramètre/
-    /// </summary>
-    public void Attack(BaseUnitController unitController)
+    public void AttackUnit(BaseUnitController unit)
     {
-        unitController.ReceiveDamage(controller.Attack);
+        unit.ReceiveDamage(unitController.Attack);
     }
 }

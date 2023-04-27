@@ -4,15 +4,16 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyBehavior : MonoBehaviour
+public class EnemyBehavior : MonoBehaviour, IUnitBehaviour
 {
+    public NavMeshAgent Agent { get; set; }
+
     private List<BaseUnitController> unitsTargated = new List<BaseUnitController>();
     private List<Vector3> castlePositions = new List<Vector3>();
     private Vector3 castleDestination;
-    private NavMeshAgent agent;
-    private UnitController controller;
+    private EnemyUnitController controller;
 
-    private void Start()
+    public void Init(BaseUnitController unitController)
     {
         List<CastleController> castles = FindObjectsOfType<CastleController>().ToList();
 
@@ -20,91 +21,64 @@ public class EnemyBehavior : MonoBehaviour
             if (castle.gameObject != null)
                 castlePositions.Add(castle.gameObject.transform.position);
 
-        agent = gameObject.GetComponent<NavMeshAgent>();
-        controller = gameObject.GetComponent<UnitController>();
-        agent.stoppingDistance = controller.Range;
+        Agent = gameObject.GetComponent<NavMeshAgent>();
+        controller = gameObject.GetComponent<EnemyUnitController>();
+        Agent.stoppingDistance = controller.Range;
 
-        if(castlePositions.Count > 0)
+        if (castlePositions.Count > 0)
         {
-            castleDestination = FindCloseCastle();
-            agent.SetDestination(castleDestination);
+            castleDestination = FindCloseCastle(gameObject.transform.position);
+            Agent.SetDestination(castleDestination);
         }
 
-        UnitEvent.OnUnitDie += RemoveUnitDead;
+        UnitEvent.OnUnitDie += UntargetUnit;
     }
 
-    private void Update()
+    public void UpdateUnit(Vector3 unitPosition)
     {
         if (unitsTargated.Count > 0)
         {
-            BaseUnitController unitController = FindCloseUnit();
-            float closeUnitDistance = Vector3.Distance(gameObject.transform.position, unitController.gameObject.transform.position);
+            BaseUnitController unitController = FindCloseUnit(unitPosition);
+            float closeUnitDistance = Vector3.Distance(unitPosition, unitController.gameObject.transform.position);
 
-            if (agent.destination != unitController.gameObject.transform.position)
-                agent.SetDestination(unitController.gameObject.transform.position);
+            if (Agent.destination != unitController.gameObject.transform.position)
+                Agent.SetDestination(unitController.gameObject.transform.position);
 
             if (closeUnitDistance <= controller.Range)
                 controller.AttackUnit(unitController);
         }
-        else if(agent.destination != castleDestination && castlePositions.Count > 0)
+        else if (Agent.destination != castleDestination && castlePositions.Count > 0)
         {
-            castleDestination = FindCloseCastle();
-            agent.SetDestination(castleDestination);
+            castleDestination = FindCloseCastle(unitPosition);
+            Agent.SetDestination(castleDestination);
         }
     }
 
-    private void RemoveUnitDead(BaseUnitController unitController)
+    private BaseUnitController FindCloseUnit(Vector3 unitPosition)
     {
-        if (unitsTargated.Contains(unitController))
-        {
-            unitsTargated.Remove(unitController);
-            if (unitController is CastleController && unitController.gameObject != null)
-                castlePositions.Remove(unitController.gameObject.transform.position);
-        }
+        float closeUnitDistance = unitsTargated.Min(u => Vector3.Distance(unitPosition, u.gameObject.transform.position));
+        return unitsTargated.Find(u => Vector3.Distance(unitPosition, u.gameObject.transform.position) == closeUnitDistance);
     }
 
-    private BaseUnitController FindCloseUnit()
+    private Vector3 FindCloseCastle(Vector3 unitPosition)
     {
-        float closeUnitDistance = unitsTargated.Min(u => Vector3.Distance(gameObject.transform.position, u.gameObject.transform.position));
-        return unitsTargated.Find(u => Vector3.Distance(gameObject.transform.position, u.gameObject.transform.position) == closeUnitDistance);
+        float closeUnitDistance = castlePositions.Min(u => Vector3.Distance(unitPosition, u));
+        return castlePositions.Find(u => Vector3.Distance(unitPosition, u) == closeUnitDistance);
     }
 
-    private Vector3 FindCloseCastle()
+    public void OnUnitDestroy()
     {
-        float closeUnitDistance = castlePositions.Min(u => Vector3.Distance(gameObject.transform.position, u));
-        return castlePositions.Find(u => Vector3.Distance(gameObject.transform.position, u) == closeUnitDistance);
+        UnitEvent.OnUnitDie -= UntargetUnit;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void TargetUnit(BaseUnitController unitController)
     {
-        if (other.tag == "PlayerUnit")
-        {
-            BaseUnitController unitController;
-            if(other.TryGetComponent(out unitController))
-            {
-                unitsTargated.Add(unitController);
-                if (unitController is CastleController)
-                    Debug.Log("Castle enter");
-            }
-        }
+        if (!unitsTargated.Contains(unitController))
+            unitsTargated.Add(unitController);
     }
 
-    private void OnTriggerExit(Collider other)
+    public void UntargetUnit(BaseUnitController unitController)
     {
-        if (other.tag == "PlayerUnit")
-        {
-            BaseUnitController unitController;
-            if (other.TryGetComponent(out unitController))
-            {
-                unitsTargated.Remove(unitController);
-                if (unitController is CastleController)
-                    Debug.Log("Castle exit");
-            }
-        }
-    }
-
-    private void OnDestroy()
-    {
-        UnitEvent.OnUnitDie -= RemoveUnitDead;
+        unitsTargated.Remove(unitController);
     }
 }

@@ -17,7 +17,7 @@ public class AllyUnitBehaviour : IUnitBehaviour
         UnitEvent.OnUnitDie += UntargetUnit;
     }
 
-    public void OnDestroy()
+    public void OnUnitDestroy()
     {
         UnitEvent.OnUnitDie -= UntargetUnit;
     }
@@ -33,7 +33,7 @@ public class AllyUnitBehaviour : IUnitBehaviour
         unitsTargeted.Remove(unitController);
     }
 
-    public void Update(Vector3 unitPosition)
+    public void UpdateUnit(Vector3 unitPosition)
     {
         if(unitsTargeted.Count > 0)
         {

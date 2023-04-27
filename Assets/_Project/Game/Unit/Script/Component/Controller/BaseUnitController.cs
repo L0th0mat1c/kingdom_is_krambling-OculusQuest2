@@ -9,9 +9,10 @@ public abstract class BaseUnitController : MonoBehaviour
     public int Attack = 0;
     public float Range = 1;
 
+
     private void OnDestroy()
     {
-        UnitEvent.UnitDie(this);
+        onUnitDie();
     }
 
     public virtual void ReceiveDamage(int damage)
@@ -19,5 +20,10 @@ public abstract class BaseUnitController : MonoBehaviour
         HP -= damage;
         if (HP <= 0)
             Destroy(gameObject);
+    }
+
+    protected virtual void onUnitDie()
+    {
+        UnitEvent.UnitDie(this);
     }
 }
