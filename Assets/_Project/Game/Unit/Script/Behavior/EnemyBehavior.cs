@@ -51,6 +51,7 @@ public class EnemyBehavior : MonoBehaviour
             castleDestination = FindCloseCastle();
             agent.SetDestination(castleDestination);
         }
+        Debug.Log(agent.destination);
     }
 
     private void RemoveUnitDead(BaseUnitController unitController)

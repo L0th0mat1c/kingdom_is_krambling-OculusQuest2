@@ -8,6 +8,7 @@ public abstract class BaseUnitController : MonoBehaviour
     public int HP = 10;
     public int Attack = 0;
     public float Range = 1;
+    public GameObject dieParticlesEffect;
 
     private void OnDestroy()
     {
@@ -17,7 +18,13 @@ public abstract class BaseUnitController : MonoBehaviour
     public virtual void ReceiveDamage(int damage)
     {
         HP -= damage;
-        if (HP <= 0)
+        if (HP <= 0) {
+            // Die particles
+            GameObject effect = (GameObject)Instantiate(dieParticlesEffect, transform.position, transform.rotation);
+            Destroy(effect, 5f);
+            
+            // Destroy the ennemy
             Destroy(gameObject);
+        }
     }
 }
