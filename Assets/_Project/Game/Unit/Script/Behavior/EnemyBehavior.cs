@@ -25,7 +25,7 @@ public class EnemyBehavior : MonoBehaviour, IUnitBehaviour
         controller = gameObject.GetComponent<EnemyUnitController>();
         Agent.stoppingDistance = controller.Range;
 
-        if (castlePositions.Count > 0)
+        if (castlePositions.Count > 0 && Agent.isActiveAndEnabled)
         {
             castleDestination = FindCloseCastle(gameObject.transform.position);
             Agent.SetDestination(castleDestination);
