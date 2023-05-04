@@ -83,37 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &2629751184042128924
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3044055060125129709}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3044055060125129709
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2629751184042128924}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5775953917191924733}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4733624772014937522
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,8 +209,6 @@ GameObject:
   - component: {fileID: 5775953917191924733}
   - component: {fileID: 7460095036333433944}
   - component: {fileID: 4639661583950139538}
-  - component: {fileID: 3449738907227673056}
-  - component: {fileID: 1193526947498303474}
   - component: {fileID: 1828465120623530891}
   m_Layer: 0
   m_Name: P_PROP_ballista_barrel_battle
@@ -266,7 +233,6 @@ Transform:
   - {fileID: 7262750635343663313}
   - {fileID: 40993831339765266}
   - {fileID: 382580789917428963}
-  - {fileID: 3044055060125129709}
   m_Father: {fileID: 6898253591321289174}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
@@ -320,32 +286,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &3449738907227673056
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6585282799537779015}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5197721, y: 0.4433447, z: 3.0291882}
-  m_Center: {x: 0.0039722025, y: 0.14917248, z: -0.38575792}
---- !u!65 &1193526947498303474
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6585282799537779015}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.9058046, y: 0.54649246, z: 0.9287858}
-  m_Center: {x: -0.004478216, y: 0.24504715, z: 0.75831103}
 --- !u!114 &1828465120623530891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,7 +392,6 @@ GameObject:
   - component: {fileID: 382580789917428963}
   - component: {fileID: 3639728898161701616}
   - component: {fileID: 710277104085032170}
-  - component: {fileID: 7788263855841929582}
   m_Layer: 0
   m_Name: SM_PROP_ballista_winch_battle
   m_TagString: Untagged
@@ -525,16 +464,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7788263855841929582
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8063088499636443734}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9422636, y: 0.73110497, z: 0.7339599}
-  m_Center: {x: 0, y: 0.0006759465, z: 0.0014046878}

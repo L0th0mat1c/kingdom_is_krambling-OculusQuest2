@@ -68,15 +68,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: e13770d41509ee24c93d9fa2592ddb89, type: 2}
+  m_sharedMaterial: {fileID: 2549947570231502679, guid: e13770d41509ee24c93d9fa2592ddb89,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 1, g: 0.9721083, b: 0.87169814, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -93,8 +94,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.2
-  m_fontSizeBase: 0.2
+  m_fontSize: 0.125
+  m_fontSizeBase: 0.125
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.29886818, z: 0, w: 0.4094782}
+  m_margin: {x: 0, y: 0.20252395, z: 0, w: 0.4094782}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -175,7 +176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0.0814, y: 1.94}
+  m_AnchoredPosition: {x: 0.0814209, y: 1.9400024}
   m_SizeDelta: {x: 3.0644, y: 1.3065}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6632664465061610299
@@ -194,6 +195,8 @@ MonoBehaviour:
   content: {fileID: 6632664465696755435}
   upgardeBox: {fileID: 281810698603685941, guid: cb60617e4c467984c992b48b3b7da7a3,
     type: 3}
+  arbaletModel: {fileID: 0}
+  goldModel: {fileID: 0}
 --- !u!114 &6632664465061610300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -206,12 +209,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c085509b994f0f4aa9913980b615ad9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  addArbaletteDamages: 0
+  addArbaletteSpeed: 0
+  addCoinsOnArbaletteHit: 0
+  addCoinsOnKill: 0
   addGoldBagOnWaveStart: 0
   addCoinsOnSecond: 0
-  addArbaletteDamages: 0
-  addMaxGoldLimit: 0
-  addCoinsOnKill: 0
-  addCoinsOnArbaletteHit: 0
 --- !u!223 &6632664465061610297
 Canvas:
   m_ObjectHideFlags: 0
@@ -255,7 +258,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6632664465061610247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -501,7 +504,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &6632664465706208883
 MonoBehaviour:
   m_ObjectHideFlags: 0
