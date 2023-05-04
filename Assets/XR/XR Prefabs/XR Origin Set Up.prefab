@@ -7679,7 +7679,7 @@ PrefabInstance:
     - target: {fileID: 4908482800323263199, guid: d8de0262c1d8e254cbdc5bd34d2697aa,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4908482801316582206, guid: d8de0262c1d8e254cbdc5bd34d2697aa,
         type: 3}
@@ -7784,7 +7784,7 @@ PrefabInstance:
     - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
         type: 3}
       propertyPath: m_DefaultParameters.m_FeatheringEffect
-      value: 0.412
+      value: 0.519
       objectReference: {fileID: 0}
     - target: {fileID: 8429981633443581383, guid: 1670dca8ee98f864eb412b51a24c08e1,
         type: 3}
