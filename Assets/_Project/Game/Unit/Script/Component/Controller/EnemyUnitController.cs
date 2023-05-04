@@ -32,24 +32,4 @@ public class EnemyUnitController : BaseUnitController
         if (enemyBehavior != null)
             enemyBehavior.UpdateUnit(gameObject.transform.position);
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.tag == "PlayerUnit" && enemyBehavior != null)
-        {
-            BaseUnitController unitController;
-            if (other.TryGetComponent(out unitController))
-                enemyBehavior.TargetUnit(unitController);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "PlayerUnit" && enemyBehavior != null)
-        {
-            BaseUnitController unitController;
-            if (other.TryGetComponent(out unitController))
-                enemyBehavior.UntargetUnit(unitController);
-        }
-    }
 }

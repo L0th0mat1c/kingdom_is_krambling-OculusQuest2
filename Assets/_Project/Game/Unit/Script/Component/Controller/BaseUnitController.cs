@@ -7,7 +7,8 @@ public abstract class BaseUnitController : MonoBehaviour
     [Header("Stats")]
     public int HP = 10;
     public int Attack = 0;
-    public float Range = 1;
+    public float RangeDetection = 1;
+    public float RangeAttack = 1;
 
 
     private void OnDestroy()

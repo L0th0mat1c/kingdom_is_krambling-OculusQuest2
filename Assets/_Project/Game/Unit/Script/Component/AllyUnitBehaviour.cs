@@ -42,7 +42,7 @@ public class AllyUnitBehaviour : IUnitBehaviour
             if(Agent != null)
                 if(Agent.isActiveAndEnabled)
                     Agent.SetDestination(closeUnit.gameObject.transform.position);
-            if(Vector3.Distance(unitPosition, closeUnit.gameObject.transform.position) <= allyUnitController.Range)
+            if(Vector3.Distance(unitPosition, closeUnit.gameObject.transform.position) <= allyUnitController.RangeDetection)
                 allyUnitController.AttackUnit(closeUnit);
         }
     }

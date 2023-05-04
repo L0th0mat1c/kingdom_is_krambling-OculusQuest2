@@ -40,7 +40,8 @@ public class SOCard : ScriptableObject
     public LvlAmount unitDamage;
     public LvlAmount unitHealth;
     public LvlAmount unitSpeed;
-    public LvlAmount unitRange;
+    public LvlAmount unitRangeDetection;
+    public LvlAmount unitRangeAttack;
     public GameObject unit;
     public bool DoDamage = true;
 
@@ -56,10 +57,14 @@ public class SOCard : ScriptableObject
     public int getCardUnitSpeed(){
         return getCardState(unitSpeed);
     }
-
-    public int getCardUnitRange(){
-        return getCardState(unitRange);
+    public int getCardUnitRangeDetection(){
+        return getCardState(unitRangeDetection);
     }
+    public int getCardUnitRangeAttack()
+    {
+        return getCardState(unitRangeAttack);
+    }
+
 
     public SOCard getNextLvl(){
         switch(lvl){

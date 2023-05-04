@@ -7,7 +7,8 @@ public class AllyUnitBuilder
     public int Health = 1;
     public int Damage = 0;
     public int Speed = 1;
-    public int Range = 1;
+    public int RangeDetection = 1;
+    public int RangeAttack = 1;
 
     public IUnitAttack UnitAttack;
     public IUnitBehaviour UnitBehaviour;
@@ -17,7 +18,8 @@ public class AllyUnitBuilder
         Health = card.getCardUnitHealth();
         Damage = card.getCardUnitDamage();
         Speed = card.getCardUnitSpeed();
-        Range = card.getCardUnitRange();
+        RangeDetection = card.getCardUnitRangeDetection();
+        RangeAttack = card.getCardUnitRangeAttack();
 
         if (card.DoDamage)
             UnitAttack = new UnitAttack();
@@ -33,7 +35,8 @@ public class AllyUnitBuilder
         {
             HP = Health,
             Attack = Damage,
-            Range = Range
+            RangeDetection = RangeDetection,
+            RangeAttack = RangeAttack,
         };
         return unitController;
     }

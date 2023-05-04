@@ -218,7 +218,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 168f97db71dca9141931adbc57ff8d3e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 168f97db71dca9141931adbc57ff8d3e,
         type: 3}
@@ -998,7 +998,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &666963436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1013,7 +1013,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 5000
   Attack: 0
-  Range: 1
+  RangeDetection: 1
+  RangeAttack: 1
 --- !u!4 &666963437
 Transform:
   m_ObjectHideFlags: 0
@@ -1773,7 +1774,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 5000
   Attack: 0
-  Range: 1
+  RangeDetection: 1
+  RangeAttack: 1
 --- !u!65 &1862865902
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1912,7 +1914,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 10
   Attack: 0
-  Range: 1
+  RangeDetection: 1
+  RangeAttack: 1
   enemyBehavior: {fileID: 0}
 --- !u!1 &2014878933
 GameObject:
@@ -2179,7 +2182,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HP: 10
   Attack: 0
-  Range: 2
+  RangeDetection: 1
+  RangeAttack: 1
 --- !u!1001 &2075995393752927520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2257,5 +2261,16 @@ PrefabInstance:
       propertyPath: Attack
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 2075995394080139667, guid: 4b790fa639d7cb146ad375c033874f35,
+        type: 3}
+      propertyPath: RangeAttack
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075995394080139667, guid: 4b790fa639d7cb146ad375c033874f35,
+        type: 3}
+      propertyPath: RangeDetection
+      value: 7
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2075995394080139669, guid: 4b790fa639d7cb146ad375c033874f35, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4b790fa639d7cb146ad375c033874f35, type: 3}
