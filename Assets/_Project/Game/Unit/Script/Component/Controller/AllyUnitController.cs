@@ -11,6 +11,7 @@ public class AllyUnitController : BaseUnitController, IUnitAttacker
     // Start is called before the first frame update
     private void Start()
     {
+        // TODO : A supprimer
         UnitBehaviour = new AllyUnitBehaviour();
         UnitAttack = new UnitAttack();
 
