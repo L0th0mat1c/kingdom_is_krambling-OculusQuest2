@@ -851,6 +851,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3177375268203292707, guid: 4bcc4d8be07de6c4fb43dbded4a45231,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e13770d41509ee24c93d9fa2592ddb89,
+        type: 2}
+    - target: {fileID: 3177375268203292707, guid: 4bcc4d8be07de6c4fb43dbded4a45231,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2549947570231502679, guid: e13770d41509ee24c93d9fa2592ddb89,
+        type: 2}
     - target: {fileID: 5095759336227744900, guid: 4bcc4d8be07de6c4fb43dbded4a45231,
         type: 3}
       propertyPath: Active
@@ -861,6 +873,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5569653700397589084, guid: 4bcc4d8be07de6c4fb43dbded4a45231,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e13770d41509ee24c93d9fa2592ddb89,
+        type: 2}
+    - target: {fileID: 5569653700397589084, guid: 4bcc4d8be07de6c4fb43dbded4a45231,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2549947570231502679, guid: e13770d41509ee24c93d9fa2592ddb89,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bcc4d8be07de6c4fb43dbded4a45231, type: 3}
 --- !u!1 &2136700935
@@ -1022,6 +1046,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UpgradeUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6632664465061610296, guid: 7dfc14d4bdd6ccc47a6220fa198e493e,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6632664465061610298, guid: 7dfc14d4bdd6ccc47a6220fa198e493e,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1137,7 +1166,7 @@ PrefabInstance:
         type: 3}
       propertyPath: arbaletModel
       value: 
-      objectReference: {fileID: 8627976588862364661, guid: 42d188e605bf5a9459124438076411cc,
+      objectReference: {fileID: 4733624772014937522, guid: fe54f4ca9d348fb48a65db4fd18e03be,
         type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7dfc14d4bdd6ccc47a6220fa198e493e, type: 3}
@@ -1148,10 +1177,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7638028330927158287, guid: b07165150147fc146a28247dfd9453a6,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e13770d41509ee24c93d9fa2592ddb89,
+        type: 2}
+    - target: {fileID: 7638028330927158287, guid: b07165150147fc146a28247dfd9453a6,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2549947570231502679, guid: e13770d41509ee24c93d9fa2592ddb89,
+        type: 2}
     - target: {fileID: 7638028331380179968, guid: b07165150147fc146a28247dfd9453a6,
         type: 3}
       propertyPath: FullWaveTime
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7638028331380179974, guid: b07165150147fc146a28247dfd9453a6,
         type: 3}
@@ -1213,5 +1254,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaveBarrel
       objectReference: {fileID: 0}
+    - target: {fileID: 7638028332484655425, guid: b07165150147fc146a28247dfd9453a6,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: e13770d41509ee24c93d9fa2592ddb89,
+        type: 2}
+    - target: {fileID: 7638028332484655425, guid: b07165150147fc146a28247dfd9453a6,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2549947570231502679, guid: e13770d41509ee24c93d9fa2592ddb89,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b07165150147fc146a28247dfd9453a6, type: 3}

@@ -91,7 +91,7 @@ public class UpgradeBoxUI : MonoBehaviour
     }
 
     private IEnumerator addItemsToSlotsCoroutine(){
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.4f);
         if(upgradeType == UpgradeManager.UpgradeType.StarterPack){
             addAllCardsToSlots();
         }else if(upgradeType == UpgradeManager.UpgradeType.CardUpgrade){
@@ -146,7 +146,7 @@ public class UpgradeBoxUI : MonoBehaviour
                 UpgradeUI.Instance.removeAvailableCard(cards[0]);
                 break;
             case UpgradeManager.UpgradeType.CardUpgrade:
-                DeckManager.Instance.upgradeCardInDeck(value, cards[0]);
+                DeckManager.Instance.upgradeCardInDeck(cards[0]);
                 break;
             case UpgradeManager.UpgradeType.GlobalUpgrade:
                 addGlobalUpgrade();
