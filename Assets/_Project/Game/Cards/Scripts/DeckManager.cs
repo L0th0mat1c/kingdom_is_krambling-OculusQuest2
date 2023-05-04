@@ -76,8 +76,9 @@ public class DeckManager : MonoBehaviour
         generateCardInDeck();
     }
 
-    public void upgradeCardInDeck(int _index, SOCard _card){
-        deck[_index] = _card;
+    public void upgradeCardInDeck(SOCard _card){
+        int index = deck.FindIndex(x => x.title == _card.title);
+        deck[index] = _card;
         generateCardInDeck();
     }
 
