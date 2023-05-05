@@ -25,7 +25,11 @@ public class XRRayManager : MonoBehaviour
         // Si on sélectionne une carte
         if(args.interactableObject.transform.tag == "Card") {
             // On set le raycast en Projectile Mode
-            args.interactorObject.transform.GetComponent<XRRayInteractor>().lineType = XRRayInteractor.LineType.ProjectileCurve;
+            XRRayInteractor xrRay = args.interactorObject.transform.GetComponent<XRRayInteractor>();
+            xrRay.lineType = XRRayInteractor.LineType.ProjectileCurve;
+            xrRay.additionalFlightTime = 5f;
+            xrRay.velocity = 20f;
+            xrRay.sampleFrequency = 100;
             
             // Visuel de la ligne du raycast
             XRInteractorLineVisual lineVisual = args.interactorObject.transform.GetComponent<XRInteractorLineVisual>();
@@ -42,12 +46,13 @@ public class XRRayManager : MonoBehaviour
     // Reset les valeurs par défaut du Ray Interactor
     private void resetRay(SelectExitEventArgs args) {
         // On remet le Raycast en ligne droite
-        args.interactorObject.transform.GetComponent<XRRayInteractor>().lineType = XRRayInteractor.LineType.StraightLine;
+        XRRayInteractor xrRay = args.interactorObject.transform.GetComponent<XRRayInteractor>();
+        xrRay.lineType = XRRayInteractor.LineType.StraightLine;
 
         // Visuel de la ligne du raycast
         XRInteractorLineVisual lineVisual = args.interactorObject.transform.GetComponent<XRInteractorLineVisual>();
         lineVisual.stopLineAtSelection = true;
-        lineVisual.lineLength = 10;
+        lineVisual.lineLength = 5;
 
         // Visuel du réticule
         args.interactorObject.transform.GetComponent<XRInteractorReticleVisual>().enabled = false;
