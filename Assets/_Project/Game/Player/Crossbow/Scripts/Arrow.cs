@@ -25,6 +25,13 @@ public class Arrow : MonoBehaviour
         if(other.collider.tag == "Weapon")
             return;
 
+        BaseUnitController enemyController;
+        if(other.collider.tag == "EnemyUnit" && other.gameObject.TryGetComponent(out enemyController)) {
+            enemyController.ReceiveDamage(10);
+            Destroy(gameObject);
+        }
+
+        Destroy(gameObject, 1f);
         Stop();
     }
 
@@ -43,8 +50,8 @@ public class Arrow : MonoBehaviour
         m_Rigidbody.useGravity = true;
         m_Rigidbody.AddForce(transform.forward * (pullValue * arrowSpeed));
 
-        StartCoroutine(ActivateCollider(0.1f));
-        Destroy(gameObject, 10f);
+        StartCoroutine(ActivateCollider(0.001f));
+        Destroy(gameObject, 20f);
     }
 
     private IEnumerator ActivateCollider(float waitTime) {

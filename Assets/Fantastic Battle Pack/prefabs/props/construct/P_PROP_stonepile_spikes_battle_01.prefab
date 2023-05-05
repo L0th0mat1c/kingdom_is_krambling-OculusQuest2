@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8570831341484018483}
   - component: {fileID: 7706970815199720240}
   - component: {fileID: 5230803102489204329}
+  - component: {fileID: 4880895017118932533}
   m_Layer: 0
   m_Name: P_PROP_stonepile_spikes_battle_01
   m_TagString: Untagged
@@ -31,6 +32,7 @@ Transform:
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 485488991703986280}
   m_Father: {fileID: 0}
@@ -55,10 +57,12 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -83,6 +87,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!65 &8570831341484018483
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -122,6 +127,36 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.15111601, y: 1.0348763, z: 0.19370341}
   m_Center: {x: 0.46281695, y: 0.6154591, z: -0.2501924}
+--- !u!205 &4880895017118932533
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5408202915963312827}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.13527465, y: 0.7902857, z: -0.08456719}
+  m_Size: 2.9115376
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.07089729
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: -7511558181221131132, guid: d06380dcb193c3a4a8bad2fcfc49f9d0,
+        type: 3}
+  - screenRelativeHeight: 0.035428703
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: -7511558181221131132, guid: d06380dcb193c3a4a8bad2fcfc49f9d0,
+        type: 3}
+  - screenRelativeHeight: 0.0117965555
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: -7511558181221131132, guid: d06380dcb193c3a4a8bad2fcfc49f9d0,
+        type: 3}
+  m_Enabled: 1
 --- !u!1 &6120247882656360642
 GameObject:
   m_ObjectHideFlags: 0
@@ -150,6 +185,7 @@ Transform:
   m_LocalRotation: {x: -0.5149493, y: -0, z: -0, w: 0.85722065}
   m_LocalPosition: {x: 0, y: 0, z: -0.206}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4631419269115658241}
   m_RootOrder: 0
