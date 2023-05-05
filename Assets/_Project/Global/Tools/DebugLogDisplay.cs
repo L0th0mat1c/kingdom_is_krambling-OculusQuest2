@@ -19,7 +19,7 @@ public class DebugLogDisplay : MonoBehaviour
     }
 
     void HandleLog(string logString, string stackTrace, LogType type) {
-        if(type == LogType.Log) {
+        if(type == LogType.Log || type == LogType.Error) {
            string[] split = logString.Split(char.Parse(":"));
            string key = split[0];
            string value = split.Length > 1 ? split[1] : "";
@@ -35,7 +35,7 @@ public class DebugLogDisplay : MonoBehaviour
                 // }
 
                 // string numAndValue = logs[key];
-                logs[key] = logs[value];
+                logs[key] = value;
             } else {
                 logs.Add(key, value);
             }
@@ -48,6 +48,10 @@ public class DebugLogDisplay : MonoBehaviour
             else
                 textValue += log.Key + ": " + log.Value + "\n";
         }
+        
+        if(type == LogType.Error)
+            text.color = Color.red;
+
         text.text= textValue;        
     }
 }
