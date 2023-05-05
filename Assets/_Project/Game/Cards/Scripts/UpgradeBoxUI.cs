@@ -73,7 +73,7 @@ public class UpgradeBoxUI : MonoBehaviour
         var index = 0;
         foreach(SOCard card in cards){
             var slotPosition = slots[index].transform.position;
-            GameObject cardInstance = Instantiate(DeckManager.Instance.cardTemplate, new Vector3(slotPosition.x, slotPosition.y, slotPosition.z - 0.1f) , Quaternion.identity);
+            GameObject cardInstance = Instantiate(DeckManager.Instance.cardTemplate, new Vector3(slotPosition.x, slotPosition.y, slotPosition.z - 0.1f) , this.gameObject.transform.rotation);
             cardInstance.GetComponent<UICard>().setCardAttribute(card, index, false);
             index++;
         }
@@ -81,12 +81,12 @@ public class UpgradeBoxUI : MonoBehaviour
 
     private void addItemToSlot(GameObject _item, int _index){
         var slotPosition = slots[_index].transform.position;
-        Instantiate(_item, new Vector3(slotPosition.x, slotPosition.y, slotPosition.z - 0.1f) , Quaternion.identity);
+        Instantiate(_item, new Vector3(slotPosition.x, slotPosition.y, slotPosition.z - 0.1f) , this.gameObject.transform.rotation);
     }
 
     private void addCardToSlot(SOCard _card, int _index){
         var slotPosition = slots[_index].transform.position;
-        GameObject cardInstance = Instantiate(DeckManager.Instance.cardTemplate, new Vector3(slotPosition.x, slotPosition.y, slotPosition.z - 0.1f) , Quaternion.identity);
+        GameObject cardInstance = Instantiate(DeckManager.Instance.cardTemplate, new Vector3(slotPosition.x, slotPosition.y, slotPosition.z - 0.1f) , this.gameObject.transform.rotation);
         cardInstance.GetComponent<UICard>().setCardAttribute(_card, _index, false);
     }
 

@@ -90,7 +90,7 @@ public class UICard : MonoBehaviour
         UIdamage.text = _card.getCardUnitDamage().ToString();
         UIhealth.text = _card.getCardUnitHealth().ToString();
         UIspeed.text = _card.getCardUnitSpeed().ToString();
-        var model = Instantiate(_card.model, UImodel.transform.position, Quaternion.identity);
+        var model = Instantiate(_card.model, UImodel.transform.position, this.gameObject.transform.rotation);
         model.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
         model.transform.SetParent(gameObject.transform);
         index = _index;

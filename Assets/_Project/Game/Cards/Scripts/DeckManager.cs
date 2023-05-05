@@ -107,7 +107,7 @@ public class DeckManager : MonoBehaviour
             if(index >= maxCardsOnBoard) return;
             var slotPosition = cardSlots[index].transform.position;
             slotPosition.x -= offset;
-            GameObject cardInstance = Instantiate(cardTemplate, slotPosition, Quaternion.identity);
+            GameObject cardInstance = Instantiate(cardTemplate, slotPosition, this.gameObject.transform.rotation);
             cardInstance.GetComponent<UICard>().setCardAttribute(card, index);
             index++;
         }
