@@ -32,6 +32,7 @@ public class UICard : MonoBehaviour
         rb.constraints = RigidbodyConstraints.FreezeAll;
         initScale = transform.localScale;
         grabInteractable = GetComponent<XRGrabInteractable>();
+        Debug.Log("new Card");
     }
 
     private void OnEnable() {
@@ -95,7 +96,7 @@ public class UICard : MonoBehaviour
         index = _index;
         unit = _card.unit;
         isPlayable = _isPlayable;
-
+        Debug.Log("new Card atributed");
         if(!_isPlayable){
             grabInteractable.enabled = false;
         }
