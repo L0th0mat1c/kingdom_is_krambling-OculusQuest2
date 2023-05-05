@@ -24,10 +24,20 @@ public abstract class BaseUnitBehaviour : MonoBehaviour
         InvokeRepeating("UpdateUnit", 1f, 0.5f);
     }
 
-    protected UnitController findCloseUnit(Vector3 unitPosition, string tagFocus)
+    protected List<UnitController> findUnitsInRange(string tagFocus = "")
     {
         List<UnitController> units = FindObjectsOfType<UnitController>().ToList();
-        units.RemoveAll(u => u.gameObject.tag != tagFocus || u == controller);
+        units.RemoveAll(u => 
+            (!string.IsNullOrEmpty(tagFocus) && u.gameObject.tag != tagFocus) || 
+            Vector3.Distance(gameObject.transform.position, u.transform.position) > controller.RangeDetection ||
+            u == controller
+        );
+        return units;
+    }
+
+    protected UnitController findCloseUnit(Vector3 unitPosition, string tagFocus)
+    {
+        List<UnitController> units = findUnitsInRange(tagFocus);
         if (units.Count == 0)
             return null;
 

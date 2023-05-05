@@ -152,7 +152,7 @@ MonoBehaviour:
   Attack: 3
   RangeDetection: 10
   RangeAttack: 3
-  Behaviour: {fileID: 0}
+  Behaviour: {fileID: 2075995394080139666}
 --- !u!114 &2075995394080139666
 MonoBehaviour:
   m_ObjectHideFlags: 0

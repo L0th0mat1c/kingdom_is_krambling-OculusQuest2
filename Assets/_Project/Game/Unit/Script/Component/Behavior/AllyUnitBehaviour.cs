@@ -6,6 +6,16 @@ using UnityEngine.AI;
 
 public class AllyUnitBehaviour : BaseUnitBehaviour
 {
+    protected override void Init()
+    {
+        if (controller.RangeAttack - 0.5f >= 1)
+            agent.stoppingDistance = controller.RangeAttack - 0.5f;
+        else
+            agent.stoppingDistance = 1;
+
+        base.Init();
+    }
+
     protected override void UpdateUnit()
     {
         UnitController closeUnit = findCloseUnit(gameObject.transform.position, "EnemyUnit");

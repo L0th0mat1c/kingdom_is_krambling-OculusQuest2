@@ -8,6 +8,7 @@ public class AllyUnitController : UnitController
     // Start is called before the first frame update
     private void Awake()
     {
-        gameObject.AddComponent<AllyUnitBehaviour>();
+        if(!TryGetComponent(out Behaviour))
+            gameObject.AddComponent<AllyUnitBehaviour>();
     }
 }

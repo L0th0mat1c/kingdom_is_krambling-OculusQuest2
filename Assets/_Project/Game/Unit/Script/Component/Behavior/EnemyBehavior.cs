@@ -36,7 +36,10 @@ public class EnemyBehavior : BaseUnitBehaviour
         UnitController unitController = findCloseUnit(gameObject.transform.position, "PlayerUnit");
 
         if (unitController == null)
+        {
             setCastleDestination(gameObject.transform.position);
+            return;
+        }
 
         float closeUnitDistance = Vector3.Distance(gameObject.transform.position, unitController.gameObject.transform.position);
         if (closeUnitDistance <= controller.RangeDetection)
