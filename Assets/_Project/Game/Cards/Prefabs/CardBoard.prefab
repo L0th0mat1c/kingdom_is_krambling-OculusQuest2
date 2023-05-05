@@ -344,12 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6f105ae8e8f4c479ce71b571377109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deck:
-  - {fileID: 11400000, guid: 2dede66ee59618f4ea5e3a947060ce80, type: 2}
-  - {fileID: 11400000, guid: 3ce8af33dde13c247a586f5819edb998, type: 2}
-  - {fileID: 11400000, guid: bba1cc4ffb9ac6b4b85332bde86728a4, type: 2}
-  - {fileID: 11400000, guid: 19ca8e124ee8bc049a6eb8012217145f, type: 2}
-  - {fileID: 11400000, guid: 679edbb2b7eb68e4b99edd3b9ca8b0ef, type: 2}
+  deck: []
   maxCardsOnBoard: 10
   cardTemplate: {fileID: 1715344196298692092, guid: 793537faaf955234b9fd93a03292097e,
     type: 3}

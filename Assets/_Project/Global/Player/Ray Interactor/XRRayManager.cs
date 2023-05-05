@@ -27,7 +27,9 @@ public class XRRayManager : MonoBehaviour
             // On set le raycast en Projectile Mode
             XRRayInteractor xrRay = args.interactorObject.transform.GetComponent<XRRayInteractor>();
             xrRay.lineType = XRRayInteractor.LineType.ProjectileCurve;
-            xrRay.additionalFlightTime = 10f;
+            xrRay.additionalFlightTime = 5f;
+            xrRay.velocity = 20f;
+            xrRay.sampleFrequency = 100;
             
             // Visuel de la ligne du raycast
             XRInteractorLineVisual lineVisual = args.interactorObject.transform.GetComponent<XRInteractorLineVisual>();
@@ -46,12 +48,11 @@ public class XRRayManager : MonoBehaviour
         // On remet le Raycast en ligne droite
         XRRayInteractor xrRay = args.interactorObject.transform.GetComponent<XRRayInteractor>();
         xrRay.lineType = XRRayInteractor.LineType.StraightLine;
-        xrRay.additionalFlightTime = 0.5f;
 
         // Visuel de la ligne du raycast
         XRInteractorLineVisual lineVisual = args.interactorObject.transform.GetComponent<XRInteractorLineVisual>();
         lineVisual.stopLineAtSelection = true;
-        lineVisual.lineLength = 10;
+        lineVisual.lineLength = 5;
 
         // Visuel du réticule
         args.interactorObject.transform.GetComponent<XRInteractorReticleVisual>().enabled = false;
