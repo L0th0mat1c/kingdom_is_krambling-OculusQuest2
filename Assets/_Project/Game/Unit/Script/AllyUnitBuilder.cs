@@ -10,8 +10,7 @@ public class AllyUnitBuilder
     public int RangeDetection = 1;
     public int RangeAttack = 1;
 
-    public IUnitAttack UnitAttack;
-    public IUnitBehaviour UnitBehaviour;
+    public BaseUnitBehaviour UnitBehaviour;
 
     public void SetAttributes(SOCard card)
     {
@@ -20,11 +19,6 @@ public class AllyUnitBuilder
         Speed = card.getCardUnitSpeed();
         RangeDetection = card.getCardUnitRangeDetection();
         RangeAttack = card.getCardUnitRangeAttack();
-
-        if (card.DoDamage)
-            UnitAttack = new UnitAttack();
-        else
-            UnitAttack = null;
 
         UnitBehaviour = getBehaviour(card.behaviour);
     }
@@ -41,9 +35,9 @@ public class AllyUnitBuilder
         return unitController;
     }
 
-    private IUnitBehaviour getBehaviour(SOCard.Behaviour behaviour)
+    private BaseUnitBehaviour getBehaviour(SOCard.Behaviour behaviour)
     {
-        IUnitBehaviour result;
+        BaseUnitBehaviour result;
         switch (behaviour)
         {
             case SOCard.Behaviour.Default:

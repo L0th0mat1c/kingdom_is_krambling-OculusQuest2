@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CastleController : StructureController
+public class CastleController : UnitController
 {
     public override void ReceiveDamage(int damage)
     {

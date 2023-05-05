@@ -112,7 +112,6 @@ GameObject:
   - component: {fileID: 2075995394080139663}
   - component: {fileID: 2075995394080139662}
   - component: {fileID: 2075995394080139665}
-  - component: {fileID: 2075995394080139669}
   - component: {fileID: 2075995394080139668}
   m_Layer: 0
   m_Name: Enemy
@@ -150,9 +149,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HP: 10
-  Attack: 5
-  Range: 4
-  enemyBehavior: {fileID: 2075995394080139666}
+  Attack: 3
+  RangeDetection: 10
+  RangeAttack: 3
+  Behaviour: {fileID: 0}
 --- !u!114 &2075995394080139666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,19 +245,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!135 &2075995394080139669
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2075995394080139660}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!195 &2075995394080139668
 NavMeshAgent:
   m_ObjectHideFlags: 0

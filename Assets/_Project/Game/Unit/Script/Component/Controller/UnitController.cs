@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseUnitController : MonoBehaviour
+public class UnitController : MonoBehaviour
 {
     [Header("Stats")]
     public int HP = 10;
@@ -10,10 +10,18 @@ public abstract class BaseUnitController : MonoBehaviour
     public float RangeDetection = 1;
     public float RangeAttack = 1;
 
+    [Header("Units components")]
+    public BaseUnitBehaviour Behaviour;
 
     private void OnDestroy()
     {
         onUnitDie();
+    }
+
+    public virtual void AttackUnit(UnitController unit)
+    {
+        if(Attack > 0)
+            unit.ReceiveDamage(Attack);
     }
 
     public virtual void ReceiveDamage(int damage)

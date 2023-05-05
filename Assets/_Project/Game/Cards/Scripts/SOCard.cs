@@ -43,7 +43,6 @@ public class SOCard : ScriptableObject
     public LvlAmount unitRangeDetection;
     public LvlAmount unitRangeAttack;
     public GameObject unit;
-    public bool DoDamage = true;
 
     public int getCardCost(){
         return getCardState(cost);
