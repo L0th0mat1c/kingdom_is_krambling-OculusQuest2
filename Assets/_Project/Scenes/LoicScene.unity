@@ -244,6 +244,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crossbow
       objectReference: {fileID: 0}
+    - target: {fileID: 7204697510984957265, guid: 47b5a285505a26048b7e0acf603caee1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7545757649083983851, guid: 47b5a285505a26048b7e0acf603caee1,
         type: 3}
       propertyPath: m_RootOrder
@@ -536,6 +541,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P_PROP_trainingdummy_battle_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4492841706999987456, guid: 15a9bc2acd581d04986d7d7a5e0d00d6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15a9bc2acd581d04986d7d7a5e0d00d6, type: 3}
@@ -906,6 +916,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Battlefield_test
+      objectReference: {fileID: 0}
+    - target: {fileID: 755311545011490902, guid: e457662d27c0d9c4db9eedfd232c163a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 755311545011490921, guid: e457662d27c0d9c4db9eedfd232c163a,
         type: 3}

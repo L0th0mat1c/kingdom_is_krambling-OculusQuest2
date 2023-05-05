@@ -94,8 +94,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.125
-  m_fontSizeBase: 0.125
+  m_fontSize: 0.15
+  m_fontSizeBase: 0.15
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -195,8 +195,10 @@ MonoBehaviour:
   content: {fileID: 6632664465696755435}
   upgardeBox: {fileID: 281810698603685941, guid: cb60617e4c467984c992b48b3b7da7a3,
     type: 3}
-  arbaletModel: {fileID: 0}
-  goldModel: {fileID: 0}
+  arbaletModel: {fileID: 4733624772014937522, guid: fe54f4ca9d348fb48a65db4fd18e03be,
+    type: 3}
+  goldModel: {fileID: 5982544409565638201, guid: 4b738ce61657976439d2aa6ffd2f4e8b,
+    type: 3}
 --- !u!114 &6632664465061610300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,7 +260,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6632664465061610247
 MonoBehaviour:
   m_ObjectHideFlags: 0

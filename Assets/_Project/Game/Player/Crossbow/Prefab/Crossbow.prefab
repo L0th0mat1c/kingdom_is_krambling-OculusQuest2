@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2326538896660949264}
   m_Layer: 9
   m_Name: Crossbow Visual
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 8230845307537439128}
   m_Layer: 9
   m_Name: Arrow Handler
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 5928092528868653183}
   m_Layer: 9
   m_Name: Winch
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 3567953671573422689}
   m_Layer: 9
   m_Name: Right Rope
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -364,7 +364,7 @@ GameObject:
   - component: {fileID: 845402574948265223}
   m_Layer: 9
   m_Name: Left Rope
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,7 +445,7 @@ GameObject:
   - component: {fileID: 5197110930685729736}
   m_Layer: 9
   m_Name: GrabLocation
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -540,7 +540,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_InteractionLayers:
-    m_Bits: 1
+    m_Bits: 4294967295
   m_DistanceCalculationMode: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
@@ -697,8 +697,8 @@ MonoBehaviour:
     type: 3}
   m_Socket: {fileID: 8842873847263136247}
   defaultPullValue: 4
-  creationArrowTime: 0.5
-  grabInteractable: {fileID: 0}
+  creationArrowTime: 0.25
+  grabInteractable: {fileID: 6852280773754054731}
 --- !u!82 &7959246631580228928
 AudioSource:
   m_ObjectHideFlags: 0
