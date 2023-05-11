@@ -20,7 +20,6 @@ public class DeckManager : MonoBehaviour
             {
                 instance = this;
             }
-            DontDestroyOnLoad(this.gameObject);
         }
     //Singleton
 
