@@ -31,8 +31,8 @@ public class UICard : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeAll;
         initScale = transform.localScale;
+        transform.DOScale(0, 0f);
         grabInteractable = GetComponent<XRGrabInteractable>();
-        Debug.Log("new Card");
     }
 
     private void OnEnable() {
@@ -40,7 +40,6 @@ public class UICard : MonoBehaviour
     }
 
     private void Start() {
-        transform.localScale = Vector3.zero;
         transform.DOScale(initScale, 0.5f);
         UpdateCardPayable(GoldManager.Instance.goldBag);
         GoldManager.Instance.OnGoldBagUpdated += UpdateCardPayable;

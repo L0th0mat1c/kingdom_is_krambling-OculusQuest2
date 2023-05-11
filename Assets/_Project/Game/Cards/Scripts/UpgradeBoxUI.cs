@@ -39,15 +39,15 @@ public class UpgradeBoxUI : MonoBehaviour
     private void Start() {
         // get
         initScale = transform.localScale;
-        // initPos = transform.position;
+        initPos = transform.position;
         // init 
-        transform.localScale = Vector3.zero;
-        canvasGroup.DOFade(0,0f);
-        transform.DOLocalMoveY(1,0f);
-        // animate
-        transform.DOScale(1,0.5f);
-        canvasGroup.DOFade(0.7f,0.5f);
-        transform.DOLocalMoveY(0,0.5f);
+        // transform.localScale = Vector3.zero;
+        // canvasGroup.DOFade(0,0f);
+        // transform.DOLocalMoveY(1,0f);
+        // // animate
+        // transform.DOScale(1,0.5f);
+        // canvasGroup.DOFade(0.7f,0.5f);
+        // transform.DOLocalMoveY(0,0.5f);
         // set
         GameManager.Instance.onGameStateChanged += onGameStateChanged;
     }
