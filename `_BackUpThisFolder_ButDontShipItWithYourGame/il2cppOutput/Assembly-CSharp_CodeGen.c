@@ -427,7 +427,15 @@ extern void XRRayManager_resetRay_m2CC20FA4AA6A652E75D10012E391632E98FCFFCB (voi
 extern void XRRayManager_setVisibityReticles_m27C092824785AB37CCC57ED94889A44A687B9CFA (void);
 // 0x000000D0 System.Void XRRayManager::.ctor()
 extern void XRRayManager__ctor_m0EC91E8062AB8D3B930CBC537C43CF1F685B8122 (void);
-static Il2CppMethodPointer s_methodPointers[208] = 
+// 0x000000D1 System.Void DebugLogDisplay::OnEnable()
+extern void DebugLogDisplay_OnEnable_m64B7779E71C0246297EA564E16D6F7904DF43BC3 (void);
+// 0x000000D2 System.Void DebugLogDisplay::OnDisable()
+extern void DebugLogDisplay_OnDisable_m38B74C043E535506E153531EADBC56F68226B651 (void);
+// 0x000000D3 System.Void DebugLogDisplay::HandleLog(System.String,System.String,UnityEngine.LogType)
+extern void DebugLogDisplay_HandleLog_mD12F8F741B8BC5D4E554821C6DEBCA5A8B702DE3 (void);
+// 0x000000D4 System.Void DebugLogDisplay::.ctor()
+extern void DebugLogDisplay__ctor_mABD1460562FF2CBAF1B56668639CB9692F6C8002 (void);
+static Il2CppMethodPointer s_methodPointers[212] = 
 {
 	DisplayFPS_Start_m09337BCF14392F6CB85C2C9F8A15B50E684C086B,
 	DisplayFPS_Update_m4F218976FF34C68C391F478434E43D8E2FCABE7D,
@@ -637,8 +645,12 @@ static Il2CppMethodPointer s_methodPointers[208] =
 	XRRayManager_resetRay_m2CC20FA4AA6A652E75D10012E391632E98FCFFCB,
 	XRRayManager_setVisibityReticles_m27C092824785AB37CCC57ED94889A44A687B9CFA,
 	XRRayManager__ctor_m0EC91E8062AB8D3B930CBC537C43CF1F685B8122,
+	DebugLogDisplay_OnEnable_m64B7779E71C0246297EA564E16D6F7904DF43BC3,
+	DebugLogDisplay_OnDisable_m38B74C043E535506E153531EADBC56F68226B651,
+	DebugLogDisplay_HandleLog_mD12F8F741B8BC5D4E554821C6DEBCA5A8B702DE3,
+	DebugLogDisplay__ctor_mABD1460562FF2CBAF1B56668639CB9692F6C8002,
 };
-static const int32_t s_InvokerIndices[208] = 
+static const int32_t s_InvokerIndices[212] = 
 {
 	8498,
 	8498,
@@ -848,12 +860,16 @@ static const int32_t s_InvokerIndices[208] =
 	6768,
 	6638,
 	8498,
+	8498,
+	8498,
+	2044,
+	8498,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	208,
+	212,
 	s_methodPointers,
 	0,
 	NULL,

@@ -19,7 +19,6 @@ public class WaveManager : MonoBehaviour
             {
                 instance = this;
             }
-            DontDestroyOnLoad(this.gameObject);
         }
     // singleton
     

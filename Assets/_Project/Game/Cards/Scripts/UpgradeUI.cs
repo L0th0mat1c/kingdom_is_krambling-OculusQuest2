@@ -18,7 +18,6 @@ public class UpgradeUI : MonoBehaviour
             {
                 instance = this;
             }
-            DontDestroyOnLoad(this.gameObject);
             allAvailableCards = getallAvailableCards();
         }
     //Singleton

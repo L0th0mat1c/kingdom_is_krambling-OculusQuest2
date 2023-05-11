@@ -8,10 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Project/Scenes/LilianScene.unity
     guid: 85d0d43c185fe9049b6bd2fd319a6100
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Project/Scenes/GameScene.unity
     guid: ddd53cafaf020704abf8505b1659c9ae
-  - enabled: 0
+  - enabled: 1
     path: Assets/_Project/Game/Cards/Scenes/DeckTester.unity
     guid: 18ccc8c13c1c2c04fa5e7fcd282b554b
   m_configObjects:

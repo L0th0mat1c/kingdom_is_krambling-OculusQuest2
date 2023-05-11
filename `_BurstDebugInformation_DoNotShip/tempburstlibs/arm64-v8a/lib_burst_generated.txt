@@ -179,6 +179,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\UnityEngine.UI.dll
 --root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.Runtime.dll
 --root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\Unity.Services.Core.Telemetry.dll
+--root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\Unity.InputSystem.dll
 --root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\Unity.VisualScripting.State.dll
 --root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Runtime.dll
@@ -187,7 +188,6 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\MoreMountains.Feedbacks.dll
 --root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\Unity.VisualScripting.Core.dll
 --root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\MoreMountains.Tools.dll
---root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.Internal.dll
 --root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll
 --root-assembly=C:\Users\joseph\Documents\T-VIR-902-TLS_10\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
