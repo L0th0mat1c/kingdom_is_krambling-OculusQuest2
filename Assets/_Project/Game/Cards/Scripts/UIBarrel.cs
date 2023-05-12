@@ -37,11 +37,11 @@ public class UIBarrel : MonoBehaviour
     private void setGoldAmount(int GoldAmount){
         UIgoldBag.text = GoldAmount.ToString();
         for(var i = 0; i < GoldItems.Length; i++){
-            if(i >= GoldAmount){
-                GoldItems[i].transform.DOScale(0,0.2f);
-            }else{
-                GoldItems[i].transform.DOScale(1,0.2f);
-            }
+            // if(i >= GoldAmount){
+            //     GoldItems[i].transform.DOScale(0,0.2f);
+            // }else{
+            //     GoldItems[i].transform.DOScale(1,0.2f);
+            // }
         }
     }
 }

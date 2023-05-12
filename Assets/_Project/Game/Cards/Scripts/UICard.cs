@@ -31,7 +31,7 @@ public class UICard : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeAll;
         initScale = transform.localScale;
-        transform.DOScale(0, 0f);
+        // transform.DOScale(0, 0f);
         grabInteractable = GetComponent<XRGrabInteractable>();
     }
 
@@ -40,7 +40,7 @@ public class UICard : MonoBehaviour
     }
 
     private void Start() {
-        transform.DOScale(initScale, 0.5f);
+        // transform.DOScale(initScale, 0.5f);
         UpdateCardPayable(GoldManager.Instance.goldBag);
         GoldManager.Instance.OnGoldBagUpdated += UpdateCardPayable;
         GameManager.Instance.onGameStateChanged += onGameStateChanged;
@@ -72,11 +72,11 @@ public class UICard : MonoBehaviour
     }
 
     public void onHoverEnter(){
-        transform.DOScale(new Vector3(initScale.x + 0.006f, initScale.y + 0.006f ,initScale.z + 0.006f ), 0.1f);
+        // transform.DOScale(new Vector3(initScale.x + 0.006f, initScale.y + 0.006f ,initScale.z + 0.006f ), 0.1f);
     }
 
     public void onHoverExit(){
-        transform.DOScale(initScale, 0.2f);
+        // transform.DOScale(initScale, 0.2f);
     }
 
 
@@ -103,17 +103,19 @@ public class UICard : MonoBehaviour
 
     private void PlayCard(ActivateEventArgs args){
         if(!isPlayable) return;
-        DeckManager.Instance.cardIsUnselected(index);
         var xRRayInteractor = args.interactorObject.transform.GetComponent<XRRayInteractor>();
         xRRayInteractor.TryGetHitInfo(out Vector3 position, out Vector3 normal, out int positionInLine, out bool isValidTarget);
-        var unitInstance = Instantiate(unit, position, Quaternion.identity);
+        Quaternion gameRotation = DeckManager.Instance.gameObject.transform.rotation;
+        var unitInstance = Instantiate(unit, position, Quaternion.Euler(0, gameRotation.y, gameRotation.z));
+        // unitInstance.GetComponent<Unit>().setUnitAttribute(card);
+
         GoldManager.Instance.removeMoney(cost);
-        Destroy(gameObject);
+        DestroyCard();
     }
 
     public void DestroyCard(){
-        transform.DOScale(0, 0.5f);
-        Destroy(gameObject, 0.5f);
+        // transform.DOScale(0, 0.5f);
+        Destroy(gameObject);
     }
     
 
