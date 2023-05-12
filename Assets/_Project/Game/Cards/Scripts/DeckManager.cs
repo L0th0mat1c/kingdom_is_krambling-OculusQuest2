@@ -80,6 +80,7 @@ public class DeckManager : MonoBehaviour
         deck[index] = _card;
         generateCardInDeck();
     }
+    
 
 
     private void updateDeck(int _index){

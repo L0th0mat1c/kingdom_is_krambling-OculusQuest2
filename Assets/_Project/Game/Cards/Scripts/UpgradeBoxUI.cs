@@ -149,6 +149,7 @@ public class UpgradeBoxUI : MonoBehaviour
                 DeckManager.Instance.upgradeCardInDeck(cards[0]);
                 break;
             case UpgradeManager.UpgradeType.GlobalUpgrade:
+                DeckManager.Instance.generateCardInDeck();
                 addGlobalUpgrade();
                 break;
         }

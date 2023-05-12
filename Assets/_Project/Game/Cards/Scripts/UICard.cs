@@ -103,14 +103,14 @@ public class UICard : MonoBehaviour
 
     private void PlayCard(ActivateEventArgs args){
         if(!isPlayable) return;
-        DeckManager.Instance.cardIsUnselected(index);
         var xRRayInteractor = args.interactorObject.transform.GetComponent<XRRayInteractor>();
         xRRayInteractor.TryGetHitInfo(out Vector3 position, out Vector3 normal, out int positionInLine, out bool isValidTarget);
-        var unitInstance = Instantiate(unit, position, Quaternion.identity);
+        Quaternion gameRotation = DeckManager.Instance.gameObject.transform.rotation;
+        var unitInstance = Instantiate(unit, position, Quaternion.Euler(0, gameRotation.y, gameRotation.z));
         // unitInstance.GetComponent<Unit>().setUnitAttribute(card);
 
         GoldManager.Instance.removeMoney(cost);
-        Destroy(gameObject);
+        DestroyCard();
     }
 
     public void DestroyCard(){
