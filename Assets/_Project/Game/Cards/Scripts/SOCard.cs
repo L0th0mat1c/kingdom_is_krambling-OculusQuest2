@@ -22,6 +22,14 @@ public class SOCard : ScriptableObject
     }
     public Lvl lvl = Lvl.basic;
 
+    public enum Behaviour
+    {
+        Default,
+        NoBehaviour,
+        Bomb
+    }
+    public Behaviour behaviour = Behaviour.Default;
+
     [Header("CardUI")]
     public GameObject model;
     public string title;
@@ -32,6 +40,8 @@ public class SOCard : ScriptableObject
     public LvlAmount unitDamage;
     public LvlAmount unitHealth;
     public LvlAmount unitSpeed;
+    public LvlAmount unitRangeDetection;
+    public LvlAmount unitRangeAttack;
     public GameObject unit;
 
     public int getCardCost(){
@@ -46,6 +56,14 @@ public class SOCard : ScriptableObject
     public int getCardUnitSpeed(){
         return getCardState(unitSpeed);
     }
+    public int getCardUnitRangeDetection(){
+        return getCardState(unitRangeDetection);
+    }
+    public int getCardUnitRangeAttack()
+    {
+        return getCardState(unitRangeAttack);
+    }
+
 
     public SOCard getNextLvl(){
         switch(lvl){
