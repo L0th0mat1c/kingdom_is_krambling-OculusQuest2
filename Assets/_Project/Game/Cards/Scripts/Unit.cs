@@ -22,7 +22,7 @@ public class Unit : MonoBehaviour
     }
 
     private void Start() {
-        transform.localScale = Vector3.zero;
-        transform.DOScale(initScale, 0.5f);
+        // transform.DOScale(0, 0);
+        // transform.DOScale(initScale, 0.5f);
     }
 }

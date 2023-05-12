@@ -89,7 +89,7 @@ public class DeckManager : MonoBehaviour
         }
         var slotPosition = cardSlots[_index].transform.position;
         slotPosition.x -= offset;
-        var cardInstance = Instantiate(cardTemplate, slotPosition, Quaternion.identity);
+        var cardInstance = Instantiate(cardTemplate, slotPosition, this.gameObject.transform.rotation);
         var card = deck[_index];
         cardInstance.GetComponent<UICard>().setCardAttribute(card, _index);
     }
