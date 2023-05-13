@@ -31,6 +31,7 @@ public class UICard : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeAll;
         initScale = transform.localScale;
+        // transform.DOScale(0, 0f);
         grabInteractable = GetComponent<XRGrabInteractable>();
     }
 
@@ -39,8 +40,7 @@ public class UICard : MonoBehaviour
     }
 
     private void Start() {
-        transform.DOScale(0, 0f);
-        transform.DOScale(initScale, 0.5f);
+        // transform.DOScale(initScale, 0.5f);
         UpdateCardPayable(GoldManager.Instance.goldBag);
         GoldManager.Instance.OnGoldBagUpdated += UpdateCardPayable;
         GameManager.Instance.onGameStateChanged += onGameStateChanged;
@@ -72,11 +72,11 @@ public class UICard : MonoBehaviour
     }
 
     public void onHoverEnter(){
-        transform.DOScale(new Vector3(initScale.x + 0.006f, initScale.y + 0.006f ,initScale.z + 0.006f ), 0.1f);
+        // transform.DOScale(new Vector3(initScale.x + 0.006f, initScale.y + 0.006f ,initScale.z + 0.006f ), 0.1f);
     }
 
     public void onHoverExit(){
-        transform.DOScale(initScale, 0.2f);
+        // transform.DOScale(initScale, 0.2f);
     }
 
     public bool isPlayableCard() {
@@ -112,12 +112,12 @@ public class UICard : MonoBehaviour
         GameObject reticleInfos = XRRayManager.Instance.currentReticleUnit;
         var unitInstance = Instantiate(unit, reticleInfos.transform.position, reticleInfos.transform.rotation);
         GoldManager.Instance.removeMoney(cost);
-        Destroy(gameObject);
+        DestroyCard();
     }
 
     public void DestroyCard(){
-        transform.DOScale(0, 0.5f);
-        Destroy(gameObject, 0.5f);
+        // transform.DOScale(0, 0.5f);
+        Destroy(gameObject);
     }
     
 

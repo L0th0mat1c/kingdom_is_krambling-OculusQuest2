@@ -53,6 +53,7 @@ public class WaveManager : MonoBehaviour
         if(CurrentWaveTime >= FullWaveTime){
             GameManager.Instance.changeGameState(GameManager.GameState.Upgrade);
             CurrentWave++;
+            OnWaveUpdated?.Invoke(CurrentWave);
         };
         CurrentWaveTime += _time;
         OnWaveTimeUpdated?.Invoke(CurrentWaveTime);

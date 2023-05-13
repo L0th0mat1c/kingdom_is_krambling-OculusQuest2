@@ -2,9 +2,9 @@ using System;
 
 public static class UnitEvent
 {
-    public static event Action<BaseUnitController> OnUnitDie;
+    public static event Action<UnitController> OnUnitDie;
 
-    public static void UnitDie(BaseUnitController unitController)
+    public static void UnitDie(UnitController unitController)
     {
         OnUnitDie?.Invoke(unitController);
     }

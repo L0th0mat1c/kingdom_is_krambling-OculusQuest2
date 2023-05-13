@@ -2,15 +2,37 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitController : BaseUnitController, IUnitAttacker
+public class UnitController : MonoBehaviour
 {
-    [Header("Unit components")]
-    [SerializeField]private EnemyBehavior enemyBehavior;
-    [SerializeField]private UnitAttack unitAttack;
+    [Header("Stats")]
+    public int HP = 10;
+    public int Attack = 0;
+    public float RangeDetection = 1;
+    public float RangeAttack = 1;
 
-    public void AttackUnit(BaseUnitController unitController)
+    [Header("Units components")]
+    public BaseUnitBehaviour Behaviour;
+
+    private void OnDestroy()
     {
-        if (unitAttack != null)
-            unitAttack.Attack(unitController);
+        onUnitDie();
+    }
+
+    public virtual void AttackUnit(UnitController unit)
+    {
+        if(Attack > 0)
+            unit.ReceiveDamage(Attack);
+    }
+
+    public virtual void ReceiveDamage(int damage)
+    {
+        HP -= damage;
+        if (HP <= 0)
+            Destroy(gameObject);
+    }
+
+    protected virtual void onUnitDie()
+    {
+        UnitEvent.UnitDie(this);
     }
 }
