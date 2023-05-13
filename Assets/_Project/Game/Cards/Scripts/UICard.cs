@@ -11,7 +11,7 @@ public class UICard : MonoBehaviour
 
     private SOCard card;
     public int cost;
-    private GameObject unit;
+    public GameObject unit {get; private set;}
     private Rigidbody rb;
     private int index;
     private bool isPlayable = false;
@@ -79,6 +79,9 @@ public class UICard : MonoBehaviour
         // transform.DOScale(initScale, 0.2f);
     }
 
+    public bool isPlayableCard() {
+        return isPlayable;
+    }
 
     public void setCardAttribute(SOCard _card, int _index, bool _isPlayable = true){
         card = _card;
@@ -95,20 +98,19 @@ public class UICard : MonoBehaviour
         index = _index;
         unit = _card.unit;
         isPlayable = _isPlayable;
-        Debug.Log("new Card atributed");
+        //Debug.Log("new Card atributed");
         if(!_isPlayable){
             grabInteractable.enabled = false;
         }
     }
 
     private void PlayCard(ActivateEventArgs args){
-        if(!isPlayable) return;
-        var xRRayInteractor = args.interactorObject.transform.GetComponent<XRRayInteractor>();
-        xRRayInteractor.TryGetHitInfo(out Vector3 position, out Vector3 normal, out int positionInLine, out bool isValidTarget);
-        Quaternion gameRotation = DeckManager.Instance.gameObject.transform.rotation;
-        var unitInstance = Instantiate(unit, position, Quaternion.Euler(0, gameRotation.y, gameRotation.z));
-        // unitInstance.GetComponent<Unit>().setUnitAttribute(card);
-
+        if(!isPlayable || !XRRayManager.Instance.isInPlayableZone) return;
+        DeckManager.Instance.cardIsUnselected(index);
+        //var xRRayInteractor = args.interactorObject.transform.GetComponent<XRRayInteractor>();
+        //xRRayInteractor.TryGetHitInfo(out Vector3 position, out Vector3 normal, out int positionInLine, out bool isValidTarget);
+        GameObject reticleInfos = XRRayManager.Instance.currentReticleUnit;
+        var unitInstance = Instantiate(unit, reticleInfos.transform.position, reticleInfos.transform.rotation);
         GoldManager.Instance.removeMoney(cost);
         DestroyCard();
     }

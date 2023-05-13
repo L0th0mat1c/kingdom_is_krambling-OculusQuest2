@@ -23,7 +23,7 @@ public class WaveUI : MonoBehaviour
     }
 
     private void UpdateWaveTimerBar(int _time){
-        Debug.Log("time -> last " + _time);
+        //Debug.Log("time -> last " + _time);
         progressBar.UpdateBar01((float)_time / WaveManager.Instance.FullWaveTime);
     }
 
