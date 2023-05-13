@@ -11,7 +11,7 @@ public class UICard : MonoBehaviour
 
     private SOCard card;
     public int cost;
-    private GameObject unit;
+    public GameObject unit {get; private set;}
     private Rigidbody rb;
     private int index;
     private bool isPlayable = false;
@@ -31,7 +31,6 @@ public class UICard : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeAll;
         initScale = transform.localScale;
-        transform.DOScale(0, 0f);
         grabInteractable = GetComponent<XRGrabInteractable>();
     }
 
@@ -40,6 +39,7 @@ public class UICard : MonoBehaviour
     }
 
     private void Start() {
+        transform.DOScale(0, 0f);
         transform.DOScale(initScale, 0.5f);
         UpdateCardPayable(GoldManager.Instance.goldBag);
         GoldManager.Instance.OnGoldBagUpdated += UpdateCardPayable;
@@ -79,6 +79,9 @@ public class UICard : MonoBehaviour
         transform.DOScale(initScale, 0.2f);
     }
 
+    public bool isPlayableCard() {
+        return isPlayable;
+    }
 
     public void setCardAttribute(SOCard _card, int _index, bool _isPlayable = true){
         card = _card;
@@ -95,18 +98,19 @@ public class UICard : MonoBehaviour
         index = _index;
         unit = _card.unit;
         isPlayable = _isPlayable;
-        Debug.Log("new Card atributed");
+        //Debug.Log("new Card atributed");
         if(!_isPlayable){
             grabInteractable.enabled = false;
         }
     }
 
     private void PlayCard(ActivateEventArgs args){
-        if(!isPlayable) return;
+        if(!isPlayable || !XRRayManager.Instance.isInPlayableZone) return;
         DeckManager.Instance.cardIsUnselected(index);
-        var xRRayInteractor = args.interactorObject.transform.GetComponent<XRRayInteractor>();
-        xRRayInteractor.TryGetHitInfo(out Vector3 position, out Vector3 normal, out int positionInLine, out bool isValidTarget);
-        var unitInstance = Instantiate(unit, position, Quaternion.identity);
+        //var xRRayInteractor = args.interactorObject.transform.GetComponent<XRRayInteractor>();
+        //xRRayInteractor.TryGetHitInfo(out Vector3 position, out Vector3 normal, out int positionInLine, out bool isValidTarget);
+        GameObject reticleInfos = XRRayManager.Instance.currentReticleUnit;
+        var unitInstance = Instantiate(unit, reticleInfos.transform.position, reticleInfos.transform.rotation);
         GoldManager.Instance.removeMoney(cost);
         Destroy(gameObject);
     }

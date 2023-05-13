@@ -41,13 +41,13 @@ public class UpgradeBoxUI : MonoBehaviour
         initScale = transform.localScale;
         initPos = transform.position;
         // init 
-        // transform.localScale = Vector3.zero;
-        // canvasGroup.DOFade(0,0f);
-        // transform.DOLocalMoveY(1,0f);
+        // transform.DOScale(0,0f);
+        canvasGroup.DOFade(0,0f);
+        transform.DOLocalMoveY(1,0f);
         // // animate
         // transform.DOScale(1,0.5f);
-        // canvasGroup.DOFade(0.7f,0.5f);
-        // transform.DOLocalMoveY(0,0.5f);
+        canvasGroup.DOFade(0.7f,0.5f);
+        transform.DOLocalMoveY(0,0.5f);
         // set
         GameManager.Instance.onGameStateChanged += onGameStateChanged;
     }
@@ -106,17 +106,19 @@ public class UpgradeBoxUI : MonoBehaviour
     }   
 
     public void onHooverEnter(){
-        if(GameManager.Instance.gameState == GameManager.GameState.Upgrade){}
+        if(GameManager.Instance.gameState == GameManager.GameState.Upgrade) {
             transform.DOScale(1.05f, 0.1f);
             transform.DOLocalMoveZ(-0.08f, 0.1f);
             canvasGroup.DOFade(1,0.1f);
+        }
     }
 
     public void onHooverExit(){
-        if(GameManager.Instance.gameState == GameManager.GameState.Upgrade){}
+        if(GameManager.Instance.gameState == GameManager.GameState.Upgrade) {
             transform.DOScale(initScale, 0.3f);
             transform.DOLocalMoveZ(0f, 0.3f);
             canvasGroup.DOFade(0.7f,0.3f);
+        }
     }
 
     public void OnActivate(){
@@ -124,8 +126,9 @@ public class UpgradeBoxUI : MonoBehaviour
     }
 
     public void DestroyUpgradeBox(){
-        // transform.DOScale(0, 0.5f);
-        Destroy(gameObject, 0.5f);
+        transform.DOScale(0, 0.5f).OnComplete(() => {
+            Destroy(gameObject, 0.5f);
+        });
     }
 
     private void OnDestroy() {

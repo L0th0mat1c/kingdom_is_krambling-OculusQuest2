@@ -1652,6 +1652,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Custom",
+            "id": "fded0123-5225-432e-a2c6-d2de1a6761a8",
+            "actions": [
+                {
+                    "name": "RotateObject",
+                    "type": "Value",
+                    "id": "9e024e20-4184-41a4-b12f-fe0af103c9c0",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "e2db6b4b-8aa7-41ab-b53b-d314dfcef1da",
+                    "path": "<XRController>{RightHand}/joystick",
+                    "interactions": "Sector(directions=12,sweepBehavior=1)",
+                    "processors": "",
+                    "groups": "Continuous Move",
+                    "action": "RotateObject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
