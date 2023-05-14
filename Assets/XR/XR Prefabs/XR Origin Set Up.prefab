@@ -3128,7 +3128,7 @@ MonoBehaviour:
   leftRayInteractor: {fileID: 474823887180687203}
   rightRayInteractor: {fileID: 2657087322881007601}
   reticleShader: {fileID: 2100000, guid: 5dc1cafc94cf99848b9abd3224c57476, type: 2}
-  RotationSpeed: 500
+  RotationSpeed: 5
 --- !u!1 &2096729914454700564
 GameObject:
   m_ObjectHideFlags: 0

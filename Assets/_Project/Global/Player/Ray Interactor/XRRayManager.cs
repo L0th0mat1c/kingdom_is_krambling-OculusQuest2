@@ -48,11 +48,21 @@ public class XRRayManager : MonoBehaviour
         if(rayInteractorMode == rayMode.GrabMode && currentGrabbedObject != null && currentGrabbedObject.transform.tag == "Card") {
             RaycastHit hit;
 
+            //Crée le reticle si il n'existe pas encore
             UICard card = currentGrabbedObject.GetComponent<UICard>(); 
             if(currentReticleUnit == null && card != null && card.unit != null) {
                 currentReticleUnit = Instantiate(card.unit);
-                currentReticleUnit.GetComponent<Collider>().enabled = false;
                 currentReticleUnit.GetComponent<MeshRenderer>().material = reticleShader;
+                foreach(Collider col in currentReticleUnit.GetComponents<Collider>()) {
+                    col.enabled = false;
+                }
+                //Pour chaque enfant de l'objet
+                foreach(Transform child in currentReticleUnit.transform) {
+                    child.GetComponent<MeshRenderer>().material = reticleShader;
+                    foreach(Collider col in child.GetComponents<Collider>()) {
+                        col.enabled = false;
+                    }
+                }
             }
 
             // Main gauche
@@ -70,11 +80,11 @@ public class XRRayManager : MonoBehaviour
                 if(hit.transform.tag == "Terrain" && card.isPlayableCard()) {
                     isInPlayableZone = true;
                     leftRayInteractor.GetComponent<XRInteractorLineVisual>().invalidColorGradient = ColorManager.Instance.validGradient;
-                    currentReticleUnit.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.cyan);
+                    updateReticleAndChildVisual(true);
                 } else {
                     isInPlayableZone = false;
                     leftRayInteractor.GetComponent<XRInteractorLineVisual>().invalidColorGradient = ColorManager.Instance.invalidGradient;
-                    currentReticleUnit.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+                    updateReticleAndChildVisual(false);
                 }
             }
 
@@ -93,11 +103,11 @@ public class XRRayManager : MonoBehaviour
                 if(hit.transform.tag == "Terrain" && card.isPlayableCard()) {
                     isInPlayableZone = true;
                     rightRayInteractor.GetComponent<XRInteractorLineVisual>().invalidColorGradient = ColorManager.Instance.validGradient;
-                    currentReticleUnit.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.cyan);
+                    updateReticleAndChildVisual(true);
                 } else {
                     isInPlayableZone = false;
                     rightRayInteractor.GetComponent<XRInteractorLineVisual>().invalidColorGradient = ColorManager.Instance.invalidGradient;
-                    currentReticleUnit.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+                    updateReticleAndChildVisual(false);
                 }
             }
         } 
@@ -122,6 +132,22 @@ public class XRRayManager : MonoBehaviour
         leftRayInteractor.selectExited.RemoveListener(resetRay);
         rightRayInteractor.selectEntered.RemoveListener(objectGrabbed);
         rightRayInteractor.selectExited.RemoveListener(resetRay);
+    }
+
+    public void updateReticleAndChildVisual(bool isValid) {
+        if(currentReticleUnit != null) {
+            if(isValid) {
+                currentReticleUnit.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.cyan);
+                foreach(Transform child in currentReticleUnit.transform) {
+                    child.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.cyan);
+                }
+            } else {
+                currentReticleUnit.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+                foreach(Transform child in currentReticleUnit.transform) {
+                    child.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
+                }
+            }
+        }
     }
 
     // Change le mode du Ray Interactor quand on intéragi avec un objet
