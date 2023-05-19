@@ -5,8 +5,8 @@ using UnityEngine;
 public class ColorManager : MonoBehaviour
 {
     // Gradient & Colors
-    public Gradient validGradient;
-    public Gradient invalidGradient;
+    public Gradient validGradient {get; private set;}
+    public Gradient invalidGradient {get; private set;}
     
     //Parameters
     GradientColorKey[] colorKey;
