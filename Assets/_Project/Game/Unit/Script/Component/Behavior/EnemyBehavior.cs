@@ -33,6 +33,10 @@ public class EnemyBehavior : BaseUnitBehaviour
 
     protected override void UpdateUnit()
     {
+        if(GameManager.Instance.gameState != GameManager.GameState.Combat){
+            Destroy(gameObject);
+        }
+
         UnitController unitController = findCloseUnit(gameObject.transform.position, "PlayerUnit");
 
         if (unitController == null)

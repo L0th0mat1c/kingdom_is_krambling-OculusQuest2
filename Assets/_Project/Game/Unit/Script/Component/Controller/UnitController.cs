@@ -9,6 +9,7 @@ public class UnitController : MonoBehaviour
     public int Attack = 0;
     public float RangeDetection = 1;
     public float RangeAttack = 1;
+    public int Weight = 1;
 
     [Header("Units components")]
     public BaseUnitBehaviour Behaviour;
@@ -29,6 +30,14 @@ public class UnitController : MonoBehaviour
         HP -= damage;
         if (HP <= 0)
             Destroy(gameObject);
+    }
+
+    public bool isAlly()
+    {
+        if(gameObject.tag == "EnemyUnit"){
+            return false;
+        }
+        return true;
     }
 
     protected virtual void onUnitDie()

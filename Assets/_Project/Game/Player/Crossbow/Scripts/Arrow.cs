@@ -25,7 +25,7 @@ public class Arrow : MonoBehaviour
         if(other.collider.tag == "Weapon")
             return;
 
-        BaseUnitController enemyController;
+        UnitController enemyController;
         if(other.collider.tag == "EnemyUnit" && other.gameObject.TryGetComponent(out enemyController)) {
             enemyController.ReceiveDamage(10);
             Destroy(gameObject);
