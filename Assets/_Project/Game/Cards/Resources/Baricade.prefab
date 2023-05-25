@@ -77,6 +77,31 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2237619487380213102, guid: a014ca62390d57b4b81a332953ad4be7,
+        type: 3}
+      propertyPath: HP
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237619487380213102, guid: a014ca62390d57b4b81a332953ad4be7,
+        type: 3}
+      propertyPath: Attack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237619487380213102, guid: a014ca62390d57b4b81a332953ad4be7,
+        type: 3}
+      propertyPath: Weight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237619487380213102, guid: a014ca62390d57b4b81a332953ad4be7,
+        type: 3}
+      propertyPath: RangeAttack
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237619487380213102, guid: a014ca62390d57b4b81a332953ad4be7,
+        type: 3}
+      propertyPath: RangeDetection
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a014ca62390d57b4b81a332953ad4be7, type: 3}
 --- !u!4 &5062911087439642915 stripped
@@ -151,6 +176,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5990971774891732965, guid: 9e635d015e9999e42a508e2b5f7b7442,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8962056102544382021, guid: 9e635d015e9999e42a508e2b5f7b7442,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e635d015e9999e42a508e2b5f7b7442, type: 3}
