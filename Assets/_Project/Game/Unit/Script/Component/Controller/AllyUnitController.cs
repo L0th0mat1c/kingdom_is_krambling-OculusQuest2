@@ -11,4 +11,12 @@ public class AllyUnitController : UnitController
         if(!TryGetComponent(out Behaviour))
             gameObject.AddComponent<AllyUnitBehaviour>();
     }
+
+    public void setProperty(int hp, int attack, float rangeDetection, float rangeAttack)
+    {
+        HP = hp;
+        Attack = attack;
+        RangeDetection = rangeDetection;
+        RangeAttack = rangeAttack;
+    }
 }

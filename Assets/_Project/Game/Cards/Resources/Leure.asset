@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   lvl: 0
+  behaviour: 0
   model: {fileID: 6903943676530275551, guid: 0e03a3c6c7af6724eb668e4f4f7dbd26, type: 3}
   title: Leure
   description: Attire les enemis proches
@@ -37,4 +38,14 @@ MonoBehaviour:
     addUpgrade1: 0
     addUpgrade2: 0
     addUpgrade3: 0
-  unit: {fileID: 4492841706999987456, guid: 5ca030c0cd6b45e4494971fe83198407, type: 3}
+  unitRangeDetection:
+    basic: 0
+    addUpgrade1: 0
+    addUpgrade2: 0
+    addUpgrade3: 0
+  unitRangeAttack:
+    basic: 0
+    addUpgrade1: 0
+    addUpgrade2: 0
+    addUpgrade3: 0
+  unit: {fileID: 5062911087439642847, guid: 7a821d1ff6add0e43ab1cd090dd1bd8f, type: 3}

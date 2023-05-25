@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   lvl: 0
+  behaviour: 0
   model: {fileID: 6825457309766921349, guid: fbdcd8ef12090944d99568aaa614e751, type: 3}
   title: Canon
   description: "Fait des degas important au uni\xE9s lourdes"
@@ -37,4 +38,14 @@ MonoBehaviour:
     addUpgrade1: 0
     addUpgrade2: 0
     addUpgrade3: 0
-  unit: {fileID: 5602350688526426193, guid: 3f232e3889584294d9b3bfb114904cc5, type: 3}
+  unitRangeDetection:
+    basic: 0
+    addUpgrade1: 0
+    addUpgrade2: 0
+    addUpgrade3: 0
+  unitRangeAttack:
+    basic: 0
+    addUpgrade1: 0
+    addUpgrade2: 0
+    addUpgrade3: 0
+  unit: {fileID: 5062911087439642847, guid: 69c63da4220db9246aeda2d68ab396c7, type: 3}
