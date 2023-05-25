@@ -5,6 +5,7 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     public float arrowSpeed = 2000f;
+    public int damage {get; private set;}
 
     private Rigidbody m_Rigidbody = null;
     private bool isStopped = true;
@@ -20,6 +21,8 @@ public class Arrow : MonoBehaviour
         //Rotate
         m_Rigidbody.MoveRotation(Quaternion.LookRotation(m_Rigidbody.velocity, transform.up));
     }
+
+    public void setDamage(int d) {this.damage = d;}
     
     private void OnCollisionEnter(Collision other) {
         if(other.collider.tag == "Weapon")
@@ -27,12 +30,23 @@ public class Arrow : MonoBehaviour
 
         UnitController enemyController;
         if(other.collider.tag == "EnemyUnit" && other.gameObject.TryGetComponent(out enemyController)) {
-            enemyController.ReceiveDamage(10);
+            //On randomise les dégâts de plus ou moins 20% (à mettre ailleurs)
+            int isCritAttack = Random.Range(0, 100);
+            int randomDamage = Random.Range(Mathf.RoundToInt(this.damage - (this.damage*0.25f)), Mathf.RoundToInt(this.damage + this.damage*0.25f));
+            if(isCritAttack >= 92)
+                randomDamage = Mathf.RoundToInt(randomDamage*2);
+                
+            //On applique les dégâts
+            enemyController.ReceiveDamage(randomDamage);
+
+            //On destroy la flèche
             Destroy(gameObject);
+            return;
         }
 
-        Destroy(gameObject, 1f);
+        //On destroy la flèche et on l'arrête
         Stop();
+        Destroy(gameObject, 1f);
     }
 
     private void Stop() {
@@ -40,6 +54,9 @@ public class Arrow : MonoBehaviour
 
         m_Rigidbody.isKinematic = true;
         m_Rigidbody.useGravity = false;
+
+        MeshCollider mesh = transform.GetComponent<MeshCollider>();
+        mesh.enabled = false;
     }
 
     public void Fire(float pullValue) {

@@ -18,6 +18,7 @@ public class Crossbow : MonoBehaviour
     private Animator m_Animator;
     
     public float creationArrowTime = 0.5f;
+    public int defaultDamage = 20;
 
     [SerializeField] XRGrabInteractable grabInteractable;
 
@@ -51,6 +52,7 @@ public class Crossbow : MonoBehaviour
 
         //Set
         m_CurrentArrow = arrowObject.GetComponent<Arrow>();
+        m_CurrentArrow.setDamage(defaultDamage);
         isCreatingArrow = false;
     }
 

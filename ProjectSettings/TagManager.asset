@@ -12,6 +12,8 @@ TagManager:
   - CardBoard
   - Reticles
   - EnemyUnit
+  - Munitions
+  - Terrain
   layers:
   - Default
   - TransparentFX
@@ -23,9 +25,9 @@ TagManager:
   - CardBoard
   - Player
   - Weapon
-  - 
-  - 
-  - 
+  - Munitions
+  - Terrain
+  - BlockingPlayer
   - 
   - 
   - 

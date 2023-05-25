@@ -27,6 +27,13 @@ public class UnitController : MonoBehaviour
 
     public virtual void ReceiveDamage(int damage)
     {
+        //Show Damage Popup
+        DamagePopupManager.Instance.newDamagePopup(gameObject.transform, damage);
+        //Sound
+        AudioSource audio = gameObject.GetComponent<AudioSource>();
+        if(audio != null)
+            audio.Play();
+        //Damage
         HP -= damage;
         if (HP <= 0)
             Destroy(gameObject);
