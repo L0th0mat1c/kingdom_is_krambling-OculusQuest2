@@ -30,7 +30,15 @@ public class Arrow : MonoBehaviour
 
         UnitController enemyController;
         if(other.collider.tag == "EnemyUnit" && other.gameObject.TryGetComponent(out enemyController)) {
-            enemyController.ReceiveDamage(this.damage);
+            //On randomise les dégâts de plus ou moins 20% (à mettre ailleurs)
+            int isCritAttack = Random.Range(0, 100);
+            int randomDamage = Random.Range(Mathf.RoundToInt(this.damage - (this.damage*0.25f)), Mathf.RoundToInt(this.damage + this.damage*0.25f));
+            if(isCritAttack >= 92)
+                randomDamage = Mathf.RoundToInt(randomDamage*2);
+                
+            //On applique les dégâts
+            enemyController.ReceiveDamage(randomDamage);
+
             //On destroy la flèche
             Destroy(gameObject);
             return;

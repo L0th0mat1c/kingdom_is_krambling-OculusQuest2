@@ -698,6 +698,7 @@ MonoBehaviour:
   m_Socket: {fileID: 8842873847263136247}
   defaultPullValue: 4
   creationArrowTime: 0.25
+  defaultDamage: 10
   grabInteractable: {fileID: 6852280773754054731}
 --- !u!82 &7959246631580228928
 AudioSource:
@@ -711,7 +712,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 6fb5069840cd8a045957b3bed7db4eac, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.265
+  m_Volume: 0.2
   m_Pitch: 2.68
   Loop: 0
   Mute: 0

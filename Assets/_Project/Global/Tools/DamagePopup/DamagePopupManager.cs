@@ -36,6 +36,7 @@ public class DamagePopupManager : MonoBehaviour
             if(tmp != null)
                 tmp.text = damage.ToString();
         }
+        ColorManager.changeColorForObjectAndChild(pos.gameObject, Color.white);
         Destroy(damagePopup, 1f);
     }
 }

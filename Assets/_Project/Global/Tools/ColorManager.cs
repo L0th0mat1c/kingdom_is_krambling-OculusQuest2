@@ -57,4 +57,28 @@ public class ColorManager : MonoBehaviour
         alphaKey[1].time = 1.0f;
         invalidGradient.SetKeys(colorKey, alphaKey);
     }
+
+    /// <summary>
+    /// Change the color of the Material in the MeshRenderer of a GameObject and for his childs
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="col"></param>
+    public static void changeColorForObjectAndChild(GameObject obj, Color col) {
+        obj.GetComponent<MeshRenderer>().material.color = col;
+        foreach(Transform child in obj.transform) {
+            child.GetComponent<MeshRenderer>().material.color = col;
+        }
+    }
+
+    /// <summary>
+    /// Change the color of the Shader in the MeshRenderer of a GameObject and for his childs
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="col"></param>
+    public static void changeShaderColorForObjectAndChild(GameObject obj, Color col) {
+        obj.GetComponent<MeshRenderer>().material.SetColor("_Color", col);
+        foreach(Transform child in obj.transform) {
+            child.GetComponent<MeshRenderer>().material.SetColor("_Color", col);
+        }
+    }
 }
