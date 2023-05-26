@@ -81,4 +81,40 @@ public class ColorManager : MonoBehaviour
             child.GetComponent<MeshRenderer>().material.SetColor("_Color", col);
         }
     }
+
+    /// <summary>
+    /// Change la couleur temporairement pour un effet de blink sur l'objet
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="col"></param>
+    public void changeTemporaryColorForObjectAndChild(GameObject obj) {
+        StartCoroutine(BlinkObjectColor(obj));
+    }
+
+    IEnumerator BlinkObjectColor(GameObject obj)
+    {
+        Material oldCol = obj.GetComponent<MeshRenderer>().material;
+        List<Material> oldChildCol = new List<Material>();
+
+        if(obj == null)
+            yield return null;
+
+        obj.GetComponent<MeshRenderer>().material = Resources.Load<Material>("WhiteMat");
+        foreach(Transform child in obj.transform) {
+            oldChildCol.Add(child.GetComponent<MeshRenderer>().material);
+            child.GetComponent<MeshRenderer>().material = Resources.Load<Material>("WhiteMat");
+        }
+
+        yield return new WaitForSeconds(0.06f);
+
+        if(obj == null)
+            yield return null;
+
+        obj.GetComponent<MeshRenderer>().material = oldCol;
+        int index = 0;
+        foreach(Transform child in obj.transform) {
+            child.GetComponent<MeshRenderer>().material = oldChildCol[index];
+            index++;
+        }
+    }
 }

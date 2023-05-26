@@ -51,8 +51,10 @@ public class XRRayManager : MonoBehaviour
             //Crée le reticle si il n'existe pas encore
             UICard card = currentGrabbedObject.GetComponent<UICard>(); 
             if(currentReticleUnit == null && card != null && card.unit != null) {
-                currentReticleUnit = Instantiate(card.unit);
+                currentReticleUnit = Instantiate(card.unit.transform.GetChild(0).gameObject);
+                //On applique le shader visual reticle
                 currentReticleUnit.GetComponent<MeshRenderer>().material = reticleShader;
+                //On désactive tout les colliders
                 foreach(Collider col in currentReticleUnit.GetComponents<Collider>()) {
                     col.enabled = false;
                 }
@@ -137,15 +139,9 @@ public class XRRayManager : MonoBehaviour
     public void updateReticleAndChildVisual(bool isValid) {
         if(currentReticleUnit != null) {
             if(isValid) {
-                currentReticleUnit.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.cyan);
-                foreach(Transform child in currentReticleUnit.transform) {
-                    child.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.cyan);
-                }
+                ColorManager.changeShaderColorForObjectAndChild(currentReticleUnit, Color.cyan);
             } else {
-                currentReticleUnit.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
-                foreach(Transform child in currentReticleUnit.transform) {
-                    child.GetComponent<MeshRenderer>().material.SetColor("_Color", Color.red);
-                }
+                ColorManager.changeShaderColorForObjectAndChild(currentReticleUnit, Color.red);
             }
         }
     }

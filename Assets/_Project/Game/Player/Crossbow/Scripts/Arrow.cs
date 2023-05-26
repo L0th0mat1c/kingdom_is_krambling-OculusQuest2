@@ -19,7 +19,8 @@ public class Arrow : MonoBehaviour
             return;
 
         //Rotate
-        m_Rigidbody.MoveRotation(Quaternion.LookRotation(m_Rigidbody.velocity, transform.up));
+        if(m_Rigidbody.velocity != Vector3.zero)
+            m_Rigidbody.MoveRotation(Quaternion.LookRotation(m_Rigidbody.velocity, transform.up));
     }
 
     public void setDamage(int d) {this.damage = d;}
