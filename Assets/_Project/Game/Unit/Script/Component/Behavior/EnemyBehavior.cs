@@ -35,6 +35,7 @@ public class EnemyBehavior : BaseUnitBehaviour
     {
         if(GameManager.Instance.gameState != GameManager.GameState.Combat){
             Destroy(gameObject);
+            return;
         }
 
         UnitController unitController = findCloseUnit(gameObject.transform.position, "PlayerUnit");

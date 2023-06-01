@@ -27,8 +27,10 @@ public class UnitController : MonoBehaviour
 
     public virtual void ReceiveDamage(int damage)
     {
-        //Show Damage Popup
-        DamagePopupManager.Instance.newDamagePopup(gameObject.transform, damage);
+        //Show Damage Popup for Ally or Ennemy
+        Color colors = isAlly() ? ColorManager.Instance.allyTextColor : ColorManager.Instance.ennemyTextColor;
+        DamagePopupManager.Instance.newDamagePopup(gameObject.transform, damage, colors);
+
         //Sound
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         if(audio != null)

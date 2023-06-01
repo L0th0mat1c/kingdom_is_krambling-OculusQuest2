@@ -7,7 +7,7 @@ public class CastleController : UnitController
     public override void ReceiveDamage(int damage)
     {
         if(HP - damage <= 0)
-            Debug.Log("LOOSE !");
+            GameManager.Instance.gameOver();
         base.ReceiveDamage(damage);
     }
 }
