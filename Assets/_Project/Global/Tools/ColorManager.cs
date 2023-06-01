@@ -7,10 +7,16 @@ public class ColorManager : MonoBehaviour
     // Gradient & Colors
     public Gradient validGradient {get; private set;}
     public Gradient invalidGradient {get; private set;}
+
+    public Color allyTextColor {get; private set;}
+    public Color ennemyTextColor {get; private set;}
     
     //Parameters
     GradientColorKey[] colorKey;
     GradientAlphaKey[] alphaKey;
+
+    //Others
+    bool courtineAlreadyRunned = false;
 
     //Instance Singleton
     private static ColorManager instance = null;
@@ -29,6 +35,14 @@ public class ColorManager : MonoBehaviour
     }
 
     void Start() {
+        //AllyTextColor
+        allyTextColor = new Color(84, 167, 255);
+        allyTextColor = Color.cyan;
+
+        //EnnemyTextColor
+        ennemyTextColor = new Color(255, 84, 84);
+        ennemyTextColor = Color.red;
+
         //Valid gradient
         validGradient = new Gradient();
         colorKey = new GradientColorKey[2];
@@ -88,16 +102,15 @@ public class ColorManager : MonoBehaviour
     /// <param name="obj"></param>
     /// <param name="col"></param>
     public void changeTemporaryColorForObjectAndChild(GameObject obj) {
-        StartCoroutine(BlinkObjectColor(obj));
+        if(courtineAlreadyRunned == false)
+            StartCoroutine(BlinkObjectColor(obj));
     }
-
+     
     IEnumerator BlinkObjectColor(GameObject obj)
     {
+        courtineAlreadyRunned = true;
         Material oldCol = obj.GetComponent<MeshRenderer>().material;
         List<Material> oldChildCol = new List<Material>();
-
-        if(obj == null)
-            yield return null;
 
         obj.GetComponent<MeshRenderer>().material = Resources.Load<Material>("WhiteMat");
         foreach(Transform child in obj.transform) {
@@ -107,14 +120,14 @@ public class ColorManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.06f);
 
-        if(obj == null)
-            yield return null;
-
-        obj.GetComponent<MeshRenderer>().material = oldCol;
-        int index = 0;
-        foreach(Transform child in obj.transform) {
-            child.GetComponent<MeshRenderer>().material = oldChildCol[index];
-            index++;
+        if(obj != null) {
+            obj.GetComponent<MeshRenderer>().material = oldCol;
+            int index = 0;
+            foreach(Transform child in obj.transform) {
+                child.GetComponent<MeshRenderer>().material = oldChildCol[index];
+                index++;
+            }
         }
+        courtineAlreadyRunned = false;
     }
 }

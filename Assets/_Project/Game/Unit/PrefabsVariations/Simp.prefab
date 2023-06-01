@@ -70,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 2075995394080139662, guid: 4b790fa639d7cb146ad375c033874f35,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2075995394080139663, guid: 4b790fa639d7cb146ad375c033874f35,
         type: 3}
@@ -84,8 +84,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2075995394080139667, guid: 4b790fa639d7cb146ad375c033874f35,
         type: 3}
+      propertyPath: HP
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075995394080139667, guid: 4b790fa639d7cb146ad375c033874f35,
+        type: 3}
+      propertyPath: Attack
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075995394080139667, guid: 4b790fa639d7cb146ad375c033874f35,
+        type: 3}
       propertyPath: Weight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075995394080139667, guid: 4b790fa639d7cb146ad375c033874f35,
+        type: 3}
+      propertyPath: RangeAttack
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b790fa639d7cb146ad375c033874f35, type: 3}

@@ -9,6 +9,7 @@ public class Arrow : MonoBehaviour
 
     private Rigidbody m_Rigidbody = null;
     private bool isStopped = true;
+    private bool alreadyHit = false;
 
     private void Awake() {
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -30,7 +31,8 @@ public class Arrow : MonoBehaviour
             return;
 
         UnitController enemyController;
-        if(other.collider.tag == "EnemyUnit" && other.gameObject.TryGetComponent(out enemyController)) {
+        if(alreadyHit == false && other.collider.tag == "EnemyUnit" && other.gameObject.TryGetComponent(out enemyController)) {
+            alreadyHit = true;
             //On randomise les dégâts de plus ou moins 20% (à mettre ailleurs)
             int isCritAttack = Random.Range(0, 100);
             int randomDamage = Random.Range(Mathf.RoundToInt(this.damage - (this.damage*0.25f)), Mathf.RoundToInt(this.damage + this.damage*0.25f));
