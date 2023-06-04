@@ -54,6 +54,6 @@ public class GameManager : MonoBehaviour
 
     IEnumerator waitOnGameOver() {
         yield return new WaitForSeconds(10);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("HubScene", LoadSceneMode.Single);
     }
 }
