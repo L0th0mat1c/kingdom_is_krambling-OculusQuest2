@@ -15,8 +15,6 @@ public class FollowCameraUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(cam.transform.position.x + 2, cam.transform.position.y, cam.transform.position.z + 2);
-        transform.rotation = cam.transform.rotation;
         transform.LookAt(cam.transform);
     }
 }

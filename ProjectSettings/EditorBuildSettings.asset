@@ -5,15 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/_Project/Scenes/LilianScene.unity
-    guid: 85d0d43c185fe9049b6bd2fd319a6100
+  - enabled: 1
+    path: Assets/_Project/Scenes/HubScene.unity
+    guid: de94e5d75092b574689179178a91e2ff
   - enabled: 1
     path: Assets/_Project/Scenes/GameScene.unity
     guid: ddd53cafaf020704abf8505b1659c9ae
-  - enabled: 0
-    path: Assets/_Project/Game/Cards/Scenes/DeckTester.unity
-    guid: 18ccc8c13c1c2c04fa5e7fcd282b554b
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: b79a5cc992f86bd4bb10b9898be79384,
       type: 2}

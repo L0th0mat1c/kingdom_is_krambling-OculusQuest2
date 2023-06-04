@@ -54,4 +54,8 @@ public class DebugLogDisplay : MonoBehaviour
 
         text.text= textValue;        
     }
+
+    public void CloseDebugLog() {
+        gameObject.SetActive(false);
+    }
 }

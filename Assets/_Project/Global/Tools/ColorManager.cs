@@ -36,12 +36,12 @@ public class ColorManager : MonoBehaviour
 
     void Start() {
         //AllyTextColor
-        allyTextColor = new Color(84, 167, 255);
-        allyTextColor = Color.cyan;
+        allyTextColor = new Color(84f, 167f, 255f);
+        //allyTextColor = Color.cyan;
 
         //EnnemyTextColor
-        ennemyTextColor = new Color(255, 84, 84);
-        ennemyTextColor = Color.red;
+        ennemyTextColor = new Color(255f, 84f, 84f);
+        //ennemyTextColor = Color.red;
 
         //Valid gradient
         validGradient = new Gradient();
