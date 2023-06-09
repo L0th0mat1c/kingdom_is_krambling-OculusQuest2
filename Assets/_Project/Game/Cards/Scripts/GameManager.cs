@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         }
     //Singleton
 
+    public GameObject playerHealthZone;
     public int life{get; private set;} = 3;
     public event Action<int> onLifeChanged;
 
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
         life -= 1;
         onLifeChanged?.Invoke(life);
         if(life <= 0){
-            gameState = GameState.GameOver;
+            gameOver();
         };
     }
 

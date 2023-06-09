@@ -17,7 +17,7 @@ GameObject:
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &844414485619281768
 Transform:
@@ -118,7 +118,7 @@ GameObject:
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &1634287319945135323
 Transform:
@@ -199,7 +199,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &9221731777508802389
 Transform:
@@ -232,7 +232,7 @@ GameObject:
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &6832113260194596982
 Transform:
@@ -315,7 +315,7 @@ GameObject:
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &6561210639387527815
 Transform:
@@ -398,7 +398,7 @@ GameObject:
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &4563765751565972548
 Transform:
@@ -479,7 +479,7 @@ GameObject:
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &5197110930685729736
 Transform:
@@ -516,7 +516,7 @@ GameObject:
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &7545757649083983851
 Transform:
@@ -701,7 +701,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3694bfc01cf99b43a4fcc7c41a66e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionBasedRef: {fileID: 0}
   arrowPrefab: {fileID: 3144693531121555987, guid: 73e147f09deaacd44bfe8dc50175e8f2,
     type: 3}
   pinPrefab: {fileID: 3737979948024207866, guid: 9d8a3bd775e7aee4384421010cfb7c92,
@@ -842,7 +841,7 @@ GameObject:
   m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 1
   m_IsActive: 1
 --- !u!4 &8842873847263136247
 Transform:
