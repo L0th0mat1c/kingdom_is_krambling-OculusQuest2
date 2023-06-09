@@ -27,6 +27,9 @@ public class GameManager : MonoBehaviour
         }
     //Singleton
 
+    public int life{get; private set;} = 3;
+    public event Action<int> onLifeChanged;
+
     public enum GameState{
         Upgrade,
         Combat,
@@ -35,7 +38,15 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public event Action<GameState> onGameStateChanged;
 
-    // Start is called before the first frame update
+
+    public void removeOneLife(){
+        life -= 1;
+        onLifeChanged?.Invoke(life);
+        if(life <= 0){
+            gameState = GameState.GameOver;
+        };
+    }
+
     void Start()
     {
         gameState = GameState.Upgrade;
