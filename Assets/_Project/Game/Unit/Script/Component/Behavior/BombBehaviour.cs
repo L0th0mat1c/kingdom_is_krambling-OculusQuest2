@@ -20,11 +20,11 @@ public class BombBehaviour : BaseUnitBehaviour
 
     private IEnumerator Explode()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(9999);
         Debug.Log("BOOUM !!!");
         List<UnitController> units = findUnitsInRange(TagFocus);
         foreach (UnitController unit in units)
             controller.AttackUnit(unit);
-        Destroy(gameObject);
+        controller.Destroy();
     }
 }
