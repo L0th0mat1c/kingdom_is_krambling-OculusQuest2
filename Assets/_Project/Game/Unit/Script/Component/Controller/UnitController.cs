@@ -14,6 +14,7 @@ public class UnitController : MonoBehaviour
     public int Attack = 0;
     public float RangeDetection = 1;
     public float RangeAttack = 1;
+    public int Weight = 1;
 
     [Header("Units components")]
     public BaseUnitBehaviour Behaviour;
@@ -55,8 +56,10 @@ public class UnitController : MonoBehaviour
 
     public virtual void ReceiveDamage(int damage)
     {
-        //Show Damage Popup
-        DamagePopupManager.Instance.newDamagePopup(gameObject.transform, damage);
+        //Show Damage Popup for Ally or Ennemy
+        Color colors = isAlly() ? ColorManager.Instance.allyTextColor : ColorManager.Instance.ennemyTextColor;
+        DamagePopupManager.Instance.newDamagePopup(gameObject.transform, damage, colors);
+
         //Sound
         AudioSource audio = gameObject.GetComponent<AudioSource>();
         if(audio != null)
@@ -76,6 +79,14 @@ public class UnitController : MonoBehaviour
         HP = 0;
         updateHealthBar();
         Destroy(gameObject);
+    }
+    
+    public bool isAlly()
+    {
+        if(gameObject.tag == "EnemyUnit"){
+            return false;
+        }
+        return true;
     }
 
     protected virtual void onUnitDie()

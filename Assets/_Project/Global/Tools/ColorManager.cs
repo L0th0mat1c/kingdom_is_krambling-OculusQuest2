@@ -7,10 +7,16 @@ public class ColorManager : MonoBehaviour
     // Gradient & Colors
     public Gradient validGradient {get; private set;}
     public Gradient invalidGradient {get; private set;}
+
+    public Color allyTextColor {get; private set;}
+    public Color ennemyTextColor {get; private set;}
     
     //Parameters
     GradientColorKey[] colorKey;
     GradientAlphaKey[] alphaKey;
+
+    //Others
+    bool courtineAlreadyRunned = false;
 
     //Instance Singleton
     private static ColorManager instance = null;
@@ -29,6 +35,14 @@ public class ColorManager : MonoBehaviour
     }
 
     void Start() {
+        //AllyTextColor
+        //allyTextColor = new Color(84f, 167f, 255f);
+        allyTextColor = Color.cyan;
+
+        //EnnemyTextColor
+        //ennemyTextColor = new Color(255f, 84f, 84f);
+        ennemyTextColor = Color.red;
+
         //Valid gradient
         validGradient = new Gradient();
         colorKey = new GradientColorKey[2];
@@ -56,5 +70,64 @@ public class ColorManager : MonoBehaviour
         alphaKey[1].alpha = 0.0f;
         alphaKey[1].time = 1.0f;
         invalidGradient.SetKeys(colorKey, alphaKey);
+    }
+
+    /// <summary>
+    /// Change the color of the Material in the MeshRenderer of a GameObject and for his childs
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="col"></param>
+    public static void changeColorForObjectAndChild(GameObject obj, Color col) {
+        obj.GetComponent<MeshRenderer>().material.color = col;
+        foreach(Transform child in obj.transform) {
+            child.GetComponent<MeshRenderer>().material.color = col;
+        }
+    }
+
+    /// <summary>
+    /// Change the color of the Shader in the MeshRenderer of a GameObject and for his childs
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="col"></param>
+    public static void changeShaderColorForObjectAndChild(GameObject obj, Color col) {
+        obj.GetComponent<MeshRenderer>().material.SetColor("_Color", col);
+        foreach(Transform child in obj.transform) {
+            child.GetComponent<MeshRenderer>().material.SetColor("_Color", col);
+        }
+    }
+
+    /// <summary>
+    /// Change la couleur temporairement pour un effet de blink sur l'objet
+    /// </summary>
+    /// <param name="obj"></param>
+    /// <param name="col"></param>
+    public void changeTemporaryColorForObjectAndChild(GameObject obj) {
+        if(courtineAlreadyRunned == false)
+            StartCoroutine(BlinkObjectColor(obj));
+    }
+     
+    IEnumerator BlinkObjectColor(GameObject obj)
+    {
+        courtineAlreadyRunned = true;
+        Material oldCol = obj.GetComponent<MeshRenderer>().material;
+        List<Material> oldChildCol = new List<Material>();
+
+        obj.GetComponent<MeshRenderer>().material = Resources.Load<Material>("WhiteMat");
+        foreach(Transform child in obj.transform) {
+            oldChildCol.Add(child.GetComponent<MeshRenderer>().material);
+            child.GetComponent<MeshRenderer>().material = Resources.Load<Material>("WhiteMat");
+        }
+
+        yield return new WaitForSeconds(0.06f);
+
+        if(obj != null) {
+            obj.GetComponent<MeshRenderer>().material = oldCol;
+            int index = 0;
+            foreach(Transform child in obj.transform) {
+                child.GetComponent<MeshRenderer>().material = oldChildCol[index];
+                index++;
+            }
+        }
+        courtineAlreadyRunned = false;
     }
 }

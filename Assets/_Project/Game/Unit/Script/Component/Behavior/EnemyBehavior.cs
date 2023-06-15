@@ -27,22 +27,34 @@ public class EnemyBehavior : BaseUnitBehaviour
             castleDestination = findCloseCastle(gameObject.transform.position);
             agent.SetDestination(castleDestination);
         }
-
+        InvokeRepeating("actualiserCastleList", 2f, 2f);
         base.Init();
+    }
+
+    private void actualiserCastleList()
+    {
+        castlePositions.Clear();
+        List<CastleController> castles = FindObjectsOfType<CastleController>().ToList();
+        foreach (CastleController castle in castles)
+            if (castle.gameObject != null)
+                castlePositions.Add(castle.gameObject.transform.position);
     }
 
     protected override void UpdateUnit()
     {
-        UnitController unitController = findCloseUnit(gameObject.transform.position, "PlayerUnit");
-
-        if (unitController == null)
-        {
-            setCastleDestination(gameObject.transform.position);
+        if(GameManager.Instance.gameState != GameManager.GameState.Combat){
+            Destroy(gameObject);
             return;
         }
 
-        float closeUnitDistance = Vector3.Distance(gameObject.transform.position, unitController.gameObject.transform.position);
-        if (closeUnitDistance <= controller.RangeDetection)
+        float closeUnitDistance = 0f;
+        UnitController unitController = findCloseUnit(gameObject.transform.position, "PlayerUnit");
+        // Si une unité proche est trouvé on calcule la distance
+        if (unitController != null)
+            closeUnitDistance = Vector3.Distance(gameObject.transform.position, unitController.gameObject.transform.position);
+        
+        // Gestion de la cible
+        if (unitController != null && closeUnitDistance <= controller.RangeDetection)
         {
             if (closeUnitDistance > controller.RangeAttack && agent.destination != unitController.gameObject.transform.position)
                 agent.SetDestination(unitController.gameObject.transform.position);
@@ -50,9 +62,12 @@ public class EnemyBehavior : BaseUnitBehaviour
             if (closeUnitDistance <= controller.RangeAttack)
                 controller.AttackUnit(unitController);
         }
-        else if (agent.destination != castleDestination && castlePositions.Count > 0)
+        else if (castlePositions.Count > 0 && agent.destination != castleDestination)
         {
             setCastleDestination(gameObject.transform.position);
+        }
+        else {
+            setDestinationToPlayerHealth();
         }
     }
 
@@ -66,5 +81,16 @@ public class EnemyBehavior : BaseUnitBehaviour
     {
         castleDestination = findCloseCastle(unitPosition);
         agent.SetDestination(castleDestination);
+    }
+
+    private void setDestinationToPlayerHealth() {
+        float distanceFromHealth = Vector3.Distance(gameObject.transform.position, GameManager.Instance.playerHealthZone.transform.position);
+        if(distanceFromHealth < 5f) {
+            GameManager.Instance.removeOneLife();
+            Destroy(gameObject);
+        } 
+        else if(GameManager.Instance.playerHealthZone != null) {
+            agent.SetDestination(GameManager.Instance.playerHealthZone.transform.position);
+        }
     }
 }

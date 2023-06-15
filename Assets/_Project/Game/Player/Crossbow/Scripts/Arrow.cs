@@ -9,6 +9,7 @@ public class Arrow : MonoBehaviour
 
     private Rigidbody m_Rigidbody = null;
     private bool isStopped = true;
+    private bool alreadyHit = false;
 
     private void Awake() {
         m_Rigidbody = GetComponent<Rigidbody>();
@@ -19,7 +20,8 @@ public class Arrow : MonoBehaviour
             return;
 
         //Rotate
-        m_Rigidbody.MoveRotation(Quaternion.LookRotation(m_Rigidbody.velocity, transform.up));
+        if(m_Rigidbody.velocity != Vector3.zero)
+            m_Rigidbody.MoveRotation(Quaternion.LookRotation(m_Rigidbody.velocity, transform.up));
     }
 
     public void setDamage(int d) {this.damage = d;}
@@ -29,8 +31,17 @@ public class Arrow : MonoBehaviour
             return;
 
         UnitController enemyController;
-        if(other.collider.tag == "EnemyUnit" && other.gameObject.TryGetComponent(out enemyController)) {
-            enemyController.ReceiveDamage(this.damage);
+        if(alreadyHit == false && other.collider.tag == "EnemyUnit" && other.gameObject.TryGetComponent(out enemyController)) {
+            alreadyHit = true;
+            //On randomise les dégâts de plus ou moins 20% (à mettre ailleurs)
+            int isCritAttack = Random.Range(0, 100);
+            int randomDamage = Random.Range(Mathf.RoundToInt(this.damage - (this.damage*0.25f)), Mathf.RoundToInt(this.damage + this.damage*0.25f));
+            if(isCritAttack >= 92)
+                randomDamage = Mathf.RoundToInt(randomDamage*2);
+                
+            //On applique les dégâts
+            enemyController.ReceiveDamage(randomDamage);
+
             //On destroy la flèche
             Destroy(gameObject);
             return;

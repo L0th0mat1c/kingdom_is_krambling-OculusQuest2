@@ -36,4 +36,12 @@ public class AllyUnitController : UnitController
         healthBar.ForegroundColor = foregroundGradient;
         healthBar.DelayedColor = delayedGradient;
     }
+    
+    public void setProperty(int hp, int attack, float rangeDetection, float rangeAttack)
+    {
+        HP = hp;
+        Attack = attack;
+        RangeDetection = rangeDetection;
+        RangeAttack = rangeAttack;
+    }
 }

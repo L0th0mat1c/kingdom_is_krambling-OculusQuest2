@@ -1665,6 +1665,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "UIPressBothHands",
+                    "type": "Button",
+                    "id": "99c87c45-66dd-4d2b-a9ed-e76596cdc90a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1687,6 +1696,28 @@
                     "processors": "",
                     "groups": "Continuous Move",
                     "action": "RotateObject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "caa6cf19-69b8-47fd-81f1-b2e3474314b3",
+                    "path": "<XRSimulatedController>{LeftHand}/triggerButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "UIPressBothHands",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a26b55cd-d0a2-4267-a9a1-b7a4acc4295b",
+                    "path": "<XRSimulatedController>{RightHand}/triggerButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "UIPressBothHands",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Game")]
+    public GameObject gameOverUIPrefab;
+    public StatsData difficulty;
 
     //Singleton
         private static GameManager instance = null;
@@ -23,15 +27,27 @@ public class GameManager : MonoBehaviour
         }
     //Singleton
 
+    public GameObject playerHealthZone;
+    public int life{get; private set;} = 3;
+    public event Action<int> onLifeChanged;
+
     public enum GameState{
         Upgrade,
         Combat,
+        GameOver,
     }
     public GameState gameState;
     public event Action<GameState> onGameStateChanged;
-    public int wave = 0;
 
-    // Start is called before the first frame update
+
+    public void removeOneLife(){
+        life -= 1;
+        onLifeChanged?.Invoke(life);
+        if(life <= 0){
+            gameOver();
+        };
+    }
+
     void Start()
     {
         gameState = GameState.Upgrade;
@@ -42,5 +58,14 @@ public class GameManager : MonoBehaviour
         onGameStateChanged?.Invoke(gameState);
     }
 
-    
+    public void gameOver() {
+        GameManager.Instance.changeGameState(GameManager.GameState.GameOver);
+        Instantiate(gameOverUIPrefab);
+        StartCoroutine(waitOnGameOver());
+    }
+
+    IEnumerator waitOnGameOver() {
+        yield return new WaitForSeconds(10);
+        SceneManager.LoadScene("HubScene", LoadSceneMode.Single);
+    }
 }

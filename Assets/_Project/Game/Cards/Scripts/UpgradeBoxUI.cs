@@ -46,7 +46,7 @@ public class UpgradeBoxUI : MonoBehaviour
         transform.DOLocalMoveY(1,0f);
         // // animate
         // transform.DOScale(1,0.5f);
-        canvasGroup.DOFade(0.7f,0.5f);
+        canvasGroup.DOFade(1,0.5f);
         transform.DOLocalMoveY(0,0.5f);
         // set
         GameManager.Instance.onGameStateChanged += onGameStateChanged;
