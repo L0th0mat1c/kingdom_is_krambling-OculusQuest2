@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class UnitController : MonoBehaviour
 {
-    public const float WidthHealtBarSize = 1f;
-    public const float HeightHealtBarSize = 0.2f;
+    protected const float WidthHealtBarSize = 1f;
+    protected const float HeightHealtBarSize = 0.2f;
 
     [Header("Stats")]
     public int HP = 10;
