@@ -5,12 +5,6 @@ using UnityEngine.AI;
 
 public class AllyUnitController : UnitController
 {
-    protected override void InitController()
-    {
-        if (!TryGetComponent(out Behaviour))
-            gameObject.AddComponent<AllyUnitBehaviour>();
-    }
-
     protected override void InitHealthBar()
     {
         base.InitHealthBar();

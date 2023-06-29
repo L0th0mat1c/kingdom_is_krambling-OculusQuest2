@@ -44,7 +44,7 @@ MonoBehaviour:
     addUpgrade2: 0
     addUpgrade3: 0
   unitRangeAttack:
-    basic: 0
+    basic: 15
     addUpgrade1: 0
     addUpgrade2: 0
     addUpgrade3: 0
