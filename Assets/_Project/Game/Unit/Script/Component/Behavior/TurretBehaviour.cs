@@ -18,7 +18,8 @@ public class TurretBehaviour : BaseUnitBehaviour
 
     protected override void UpdateUnit()
     {
-        List<UnitController> controllers = FindObjectsOfType<UnitController>().Where(c => Vector3.Distance(transform.position, c.gameObject.transform.position) <= controller.RangeAttack).ToList();
+        List<UnitController> controllers = FindObjectsOfType<UnitController>().Where(c => c.tag == tagFocus).Where(c => Vector3.Distance(transform.position, c.gameObject.transform.position) <= controller.RangeAttack).ToList();
+        Debug.Log($"CANON : {controller.RangeAttack}");
         if (controllers.Count == 0)
             return;
         controllers.GroupBy(c => Vector3.Distance(transform.position, c.gameObject.transform.position));
