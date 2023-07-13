@@ -156,8 +156,31 @@ PrefabInstance:
       propertyPath: Attack
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 2237619487380213102, guid: a014ca62390d57b4b81a332953ad4be7,
+        type: 3}
+      propertyPath: RangeAttack
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a014ca62390d57b4b81a332953ad4be7, type: 3}
+--- !u!1 &5062911087439642847 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2237619487380212887, guid: a014ca62390d57b4b81a332953ad4be7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6435236903253969992}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6832328329964934334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5062911087439642847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659fc863d5b5d1d468cc45f0abfed13c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5062911087439642915 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2237619487380213099, guid: a014ca62390d57b4b81a332953ad4be7,

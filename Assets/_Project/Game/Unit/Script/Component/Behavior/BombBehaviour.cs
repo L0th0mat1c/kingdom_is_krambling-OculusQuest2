@@ -4,27 +4,35 @@ using UnityEngine;
 
 public class BombBehaviour : BaseUnitBehaviour
 {
-    public string TagFocus;
+    /// <summary>
+    /// Time in seconds.
+    /// </summary>
+    public int TimeBeforeExplosion = 10;
+
+    /// <summary>
+    /// Tag of units targeted by explosion.
+    /// </summary>
+    private string tagFocus;
 
     protected override void Init()
     {
         if (gameObject.tag == "PlayerUnit")
-            TagFocus = "EnemyUnit";
+            tagFocus = "EnemyUnit";
         else
-            TagFocus = "PlayerUnit";
+            tagFocus = "PlayerUnit";
 
         StartCoroutine(Explode());
         base.Init();
     }
+
     protected override void UpdateUnit() { }
 
     private IEnumerator Explode()
     {
-        yield return new WaitForSeconds(3);
-        Debug.Log("BOOUM !!!");
-        List<UnitController> units = findUnitsInRange(TagFocus);
+        yield return new WaitForSeconds(10);
+        List<UnitController> units = findUnitsInRange(tagFocus);
         foreach (UnitController unit in units)
             controller.AttackUnit(unit);
-        Destroy(gameObject);
+        controller.Destroy();
     }
 }
