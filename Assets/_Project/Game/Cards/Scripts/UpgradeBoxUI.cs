@@ -39,14 +39,14 @@ public class UpgradeBoxUI : MonoBehaviour
     private void Start() {
         // get
         initScale = transform.localScale;
-        // initPos = transform.position;
+        initPos = transform.position;
         // init 
-        transform.localScale = Vector3.zero;
+        // transform.DOScale(0,0f);
         canvasGroup.DOFade(0,0f);
         transform.DOLocalMoveY(1,0f);
-        // animate
-        transform.DOScale(1,0.5f);
-        canvasGroup.DOFade(0.7f,0.5f);
+        // // animate
+        // transform.DOScale(1,0.5f);
+        canvasGroup.DOFade(1,0.5f);
         transform.DOLocalMoveY(0,0.5f);
         // set
         GameManager.Instance.onGameStateChanged += onGameStateChanged;
@@ -73,7 +73,7 @@ public class UpgradeBoxUI : MonoBehaviour
         var index = 0;
         foreach(SOCard card in cards){
             var slotPosition = slots[index].transform.position;
-            GameObject cardInstance = Instantiate(DeckManager.Instance.cardTemplate, new Vector3(slotPosition.x, slotPosition.y, slotPosition.z - 0.1f) , Quaternion.identity);
+            GameObject cardInstance = Instantiate(DeckManager.Instance.cardTemplate, new Vector3(slotPosition.x, slotPosition.y, slotPosition.z - 0.1f) , this.gameObject.transform.rotation);
             cardInstance.GetComponent<UICard>().setCardAttribute(card, index, false);
             index++;
         }
@@ -81,17 +81,17 @@ public class UpgradeBoxUI : MonoBehaviour
 
     private void addItemToSlot(GameObject _item, int _index){
         var slotPosition = slots[_index].transform.position;
-        Instantiate(_item, new Vector3(slotPosition.x, slotPosition.y, slotPosition.z - 0.1f) , Quaternion.identity);
+        Instantiate(_item, new Vector3(slotPosition.x, slotPosition.y, slotPosition.z - 0.1f) , this.gameObject.transform.rotation);
     }
 
     private void addCardToSlot(SOCard _card, int _index){
         var slotPosition = slots[_index].transform.position;
-        GameObject cardInstance = Instantiate(DeckManager.Instance.cardTemplate, new Vector3(slotPosition.x, slotPosition.y, slotPosition.z - 0.1f) , Quaternion.identity);
+        GameObject cardInstance = Instantiate(DeckManager.Instance.cardTemplate, new Vector3(slotPosition.x, slotPosition.y, slotPosition.z - 0.1f) , this.gameObject.transform.rotation);
         cardInstance.GetComponent<UICard>().setCardAttribute(_card, _index, false);
     }
 
     private IEnumerator addItemsToSlotsCoroutine(){
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.4f);
         if(upgradeType == UpgradeManager.UpgradeType.StarterPack){
             addAllCardsToSlots();
         }else if(upgradeType == UpgradeManager.UpgradeType.CardUpgrade){
@@ -106,17 +106,17 @@ public class UpgradeBoxUI : MonoBehaviour
     }   
 
     public void onHooverEnter(){
-        if(GameManager.Instance.gameState == GameManager.GameState.Upgrade)
-            transform.DOScale(1.05f, 0.1f);
-            transform.DOLocalMoveZ(-0.08f, 0.1f);
-            canvasGroup.DOFade(1,0.1f);
+        // if(GameManager.Instance.gameState == GameManager.GameState.Upgrade)
+        //     transform.DOScale(1.05f, 0.1f);
+        //     transform.DOLocalMoveZ(-0.08f, 0.1f);
+        //     canvasGroup.DOFade(1,0.1f);
     }
 
     public void onHooverExit(){
-        if(GameManager.Instance.gameState == GameManager.GameState.Upgrade)
-            transform.DOScale(initScale, 0.3f);
-            transform.DOLocalMoveZ(0f, 0.3f);
-            canvasGroup.DOFade(0.7f,0.3f);
+        // if(GameManager.Instance.gameState == GameManager.GameState.Upgrade)
+        //     transform.DOScale(initScale, 0.3f);
+        //     transform.DOLocalMoveZ(0f, 0.3f);
+        //     canvasGroup.DOFade(0.7f,0.3f);
     }
 
     public void OnActivate(){
@@ -124,8 +124,8 @@ public class UpgradeBoxUI : MonoBehaviour
     }
 
     public void DestroyUpgradeBox(){
-        transform.DOScale(0, 0.5f);
-        Destroy(gameObject, 0.5f);
+        // transform.DOScale(0, 0.5f);
+        Destroy(gameObject);
     }
 
     private void OnDestroy() {
@@ -146,9 +146,10 @@ public class UpgradeBoxUI : MonoBehaviour
                 UpgradeUI.Instance.removeAvailableCard(cards[0]);
                 break;
             case UpgradeManager.UpgradeType.CardUpgrade:
-                DeckManager.Instance.upgradeCardInDeck(value, cards[0]);
+                DeckManager.Instance.upgradeCardInDeck(cards[0]);
                 break;
             case UpgradeManager.UpgradeType.GlobalUpgrade:
+                DeckManager.Instance.generateCardInDeck();
                 addGlobalUpgrade();
                 break;
         }

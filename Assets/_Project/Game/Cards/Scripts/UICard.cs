@@ -11,7 +11,7 @@ public class UICard : MonoBehaviour
 
     private SOCard card;
     public int cost;
-    private GameObject unit;
+    public GameObject unit {get; private set;}
     private Rigidbody rb;
     private int index;
     private bool isPlayable = false;
@@ -31,6 +31,7 @@ public class UICard : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeAll;
         initScale = transform.localScale;
+        // transform.DOScale(0, 0f);
         grabInteractable = GetComponent<XRGrabInteractable>();
     }
 
@@ -39,8 +40,7 @@ public class UICard : MonoBehaviour
     }
 
     private void Start() {
-        transform.localScale = Vector3.zero;
-        transform.DOScale(initScale, 0.5f);
+        // transform.DOScale(initScale, 0.5f);
         UpdateCardPayable(GoldManager.Instance.goldBag);
         GoldManager.Instance.OnGoldBagUpdated += UpdateCardPayable;
         GameManager.Instance.onGameStateChanged += onGameStateChanged;
@@ -72,13 +72,16 @@ public class UICard : MonoBehaviour
     }
 
     public void onHoverEnter(){
-        transform.DOScale(new Vector3(initScale.x + 0.006f, initScale.y + 0.006f ,initScale.z + 0.006f ), 0.1f);
+        // transform.DOScale(new Vector3(initScale.x + 0.006f, initScale.y + 0.006f ,initScale.z + 0.006f ), 0.1f);
     }
 
     public void onHoverExit(){
-        transform.DOScale(initScale, 0.2f);
+        // transform.DOScale(initScale, 0.2f);
     }
 
+    public bool isPlayableCard() {
+        return isPlayable;
+    }
 
     public void setCardAttribute(SOCard _card, int _index, bool _isPlayable = true){
         card = _card;
@@ -89,31 +92,32 @@ public class UICard : MonoBehaviour
         UIdamage.text = _card.getCardUnitDamage().ToString();
         UIhealth.text = _card.getCardUnitHealth().ToString();
         UIspeed.text = _card.getCardUnitSpeed().ToString();
-        var model = Instantiate(_card.model, UImodel.transform.position, Quaternion.identity);
+        var model = Instantiate(_card.model, UImodel.transform.position, this.gameObject.transform.rotation);
         model.transform.localScale = new Vector3(0.06f, 0.06f, 0.06f);
         model.transform.SetParent(gameObject.transform);
         index = _index;
         unit = _card.unit;
         isPlayable = _isPlayable;
-
+        //Debug.Log("new Card atributed");
         if(!_isPlayable){
             grabInteractable.enabled = false;
         }
     }
 
     private void PlayCard(ActivateEventArgs args){
-        if(!isPlayable) return;
+        if(!isPlayable || !XRRayManager.Instance.isInPlayableZone) return;
         DeckManager.Instance.cardIsUnselected(index);
-        var xRRayInteractor = args.interactorObject.transform.GetComponent<XRRayInteractor>();
-        xRRayInteractor.TryGetHitInfo(out Vector3 position, out Vector3 normal, out int positionInLine, out bool isValidTarget);
-        var unitInstance = Instantiate(unit, position, Quaternion.identity);
+        //var xRRayInteractor = args.interactorObject.transform.GetComponent<XRRayInteractor>();
+        //xRRayInteractor.TryGetHitInfo(out Vector3 position, out Vector3 normal, out int positionInLine, out bool isValidTarget);
+        GameObject reticleInfos = XRRayManager.Instance.currentReticleUnit;
+        var unitInstance = Instantiate(unit, reticleInfos.transform.position, reticleInfos.transform.rotation);
         GoldManager.Instance.removeMoney(cost);
-        Destroy(gameObject);
+        DestroyCard();
     }
 
     public void DestroyCard(){
-        transform.DOScale(0, 0.5f);
-        Destroy(gameObject, 0.5f);
+        // transform.DOScale(0, 0.5f);
+        Destroy(gameObject);
     }
     
 

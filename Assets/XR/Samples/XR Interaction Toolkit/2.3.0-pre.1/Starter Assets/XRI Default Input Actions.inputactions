@@ -1652,6 +1652,76 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Custom",
+            "id": "fded0123-5225-432e-a2c6-d2de1a6761a8",
+            "actions": [
+                {
+                    "name": "RotateObject",
+                    "type": "Value",
+                    "id": "9e024e20-4184-41a4-b12f-fe0af103c9c0",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "UIPressBothHands",
+                    "type": "Button",
+                    "id": "99c87c45-66dd-4d2b-a9ed-e76596cdc90a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "371a17e6-77ad-4687-91f0-3b0d58c6df7b",
+                    "path": "<XRController>{LeftHand}/joystick",
+                    "interactions": "Sector(directions=12,sweepBehavior=1)",
+                    "processors": "",
+                    "groups": "Continuous Move",
+                    "action": "RotateObject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e2db6b4b-8aa7-41ab-b53b-d314dfcef1da",
+                    "path": "<XRController>{RightHand}/joystick",
+                    "interactions": "Sector(directions=12,sweepBehavior=1)",
+                    "processors": "",
+                    "groups": "Continuous Move",
+                    "action": "RotateObject",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "caa6cf19-69b8-47fd-81f1-b2e3474314b3",
+                    "path": "<XRSimulatedController>{LeftHand}/triggerButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "UIPressBothHands",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a26b55cd-d0a2-4267-a9a1-b7a4acc4295b",
+                    "path": "<XRSimulatedController>{RightHand}/triggerButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "UIPressBothHands",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

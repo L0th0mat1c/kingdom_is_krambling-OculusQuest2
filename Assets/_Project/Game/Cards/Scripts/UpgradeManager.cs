@@ -20,7 +20,6 @@ public class UpgradeManager : MonoBehaviour
             {
                 instance = this;
             }
-            DontDestroyOnLoad(this.gameObject);
         }
     //Singleton
 

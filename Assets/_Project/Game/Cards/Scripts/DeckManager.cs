@@ -20,7 +20,6 @@ public class DeckManager : MonoBehaviour
             {
                 instance = this;
             }
-            DontDestroyOnLoad(this.gameObject);
         }
     //Singleton
 
@@ -76,10 +75,12 @@ public class DeckManager : MonoBehaviour
         generateCardInDeck();
     }
 
-    public void upgradeCardInDeck(int _index, SOCard _card){
-        deck[_index] = _card;
+    public void upgradeCardInDeck(SOCard _card){
+        int index = deck.FindIndex(x => x.title == _card.title);
+        deck[index] = _card;
         generateCardInDeck();
     }
+    
 
 
     private void updateDeck(int _index){
@@ -89,7 +90,7 @@ public class DeckManager : MonoBehaviour
         }
         var slotPosition = cardSlots[_index].transform.position;
         slotPosition.x -= offset;
-        var cardInstance = Instantiate(cardTemplate, slotPosition, Quaternion.identity);
+        var cardInstance = Instantiate(cardTemplate, slotPosition, this.gameObject.transform.rotation);
         var card = deck[_index];
         cardInstance.GetComponent<UICard>().setCardAttribute(card, _index);
     }
@@ -106,7 +107,7 @@ public class DeckManager : MonoBehaviour
             if(index >= maxCardsOnBoard) return;
             var slotPosition = cardSlots[index].transform.position;
             slotPosition.x -= offset;
-            GameObject cardInstance = Instantiate(cardTemplate, slotPosition, Quaternion.identity);
+            GameObject cardInstance = Instantiate(cardTemplate, slotPosition, this.gameObject.transform.rotation);
             cardInstance.GetComponent<UICard>().setCardAttribute(card, index);
             index++;
         }
