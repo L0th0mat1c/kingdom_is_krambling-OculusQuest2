@@ -20,10 +20,6 @@ Language:
 
 ## 🧱 Project Organisation
 
-### Trello
-
-- https://trello.com/b/OSfgqvuH/t-vir-902
-
 ### Commits
 
 We are following the [gitmoji convention](https://gitmoji.dev/).
